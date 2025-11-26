@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地球物理學期末專題報告 - U11104022</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'sans-serif'],
+                    },
+                    colors: {
+                        earth: {
+                            50: '#f4f7f6',
+                            100: '#e3eBE8',
+                            500: '#4a7c59',
+                            600: '#3a6346',
+                            800: '#2d4a35',
+                        },
+                        geo: {
+                            light: '#e0f2fe',
+                            DEFAULT: '#0284c7',
+                            dark: '#0c4a6e'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #2d4a35, #0284c7);
+        }
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Navbar -->
+    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <i class="fa-solid fa-layer-group text-earth-600 text-2xl mr-3"></i>
+                    <span class="font-bold text-xl text-gray-800 tracking-tight">地球物理學期末報告</span>
+                </div>
+                <div class="text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                    學號：U11104022
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+                <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+                    <div class="sm:text-center lg:text-left">
+                        <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                            <span class="block xl:inline">探索地球物理的</span>
+                            <span class="block gradient-text">數位與實作旅程</span>
+                        </h1>
+                        <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                            本學期精選作業展示。從實地操作震測儀器，到運用 Python 與 AI 工具進行數據分析與視覺化，展現了跨領域的學習成果。
+                        </p>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 bg-earth-50 flex items-center justify-center">
+             <!-- Abstract Graphic Representation -->
+            <div class="relative w-full h-full flex items-center justify-center opacity-20">
+                 <i class="fa-solid fa-earth-americas text-9xl text-earth-600 animate-pulse"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Highlight: Seismic Experiment (HW5) -->
+    <section class="py-12 bg-white border-y border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-10">
+                <h2 class="text-base text-earth-600 font-semibold tracking-wide uppercase">實地操作與分析</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    作業 5：校園淺層構造震測實驗
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    第九組報告重點摘要。利用折射震測法，於圖書館後方進行地下構造探測。
+                </p>
+            </div>
+
+            <div class="bg-earth-50 rounded-2xl p-8 shadow-sm border border-earth-100">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <div class="text-4xl font-bold text-geo-DEFAULT mb-2">400 <span class="text-base font-normal text-gray-500">m/s</span></div>
+                        <div class="text-sm font-medium text-gray-600">第一層波速 ($V_1$)</div>
+                        <p class="text-xs text-gray-400 mt-2">表層土壤介質</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <div class="text-4xl font-bold text-geo-dark mb-2">1500 <span class="text-base font-normal text-gray-500">m/s</span></div>
+                        <div class="text-sm font-medium text-gray-600">第二層波速 ($V_2$)</div>
+                        <p class="text-xs text-gray-400 mt-2">下方較硬地層</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                        <div class="text-4xl font-bold text-earth-600 mb-2">4.21 <span class="text-base font-normal text-gray-500">m</span></div>
+                        <div class="text-sm font-medium text-gray-600">推估層厚 ($H$)</div>
+                        <p class="text-xs text-gray-400 mt-2">第一層地層厚度</p>
+                    </div>
+                </div>
+                <div class="mt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600 bg-white/50 p-4 rounded-lg">
+                    <div class="flex items-center mb-4 md:mb-0">
+                        <i class="fa-solid fa-map-marker-alt text-red-500 mr-2"></i>
+                        <span>地點：學校圖書館後方</span>
+                    </div>
+                    <div class="flex items-center mb-4 md:mb-0">
+                        <i class="fa-solid fa-hammer text-gray-700 mr-2"></i>
+                        <span>震源：鐵鎚敲擊 (46m 測線)</span>
+                    </div>
+                    <a href="#" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-earth-600 hover:bg-earth-800 transition-colors">
+                        <i class="fa-regular fa-file-pdf mr-2"></i> 查看完整報告 (PDF)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Gallery -->
+    <section class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-10">
+                <h2 class="text-3xl font-bold text-gray-900">數位實作成果精選</h2>
+                <p class="mt-2 text-gray-600">結合 HuggingFace, GitHub 與 AI 工具的地球物理應用</p>
+            </div>
+
+            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                
+                <!-- HW1 -->
+                <a href="https://huggingface.co/spaces/Z72123/Intro-to-Geophysics" target="_blank" class="card-hover bg-white overflow-hidden rounded-lg shadow-sm border border-gray-100 block group">
+                    <div class="h-2 bg-yellow-400"></div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                HW 1
+                            </span>
+                            <i class="fa-solid fa-face-smile text-gray-400 group-hover:text-yellow-500 transition-colors"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900 group-hover:text-yellow-600 transition-colors">Intro to Geophysics</h3>
+                        <p class="mt-2 text-sm text-gray-500">
+                            初次接觸 HuggingFace Spaces，建立地球物理學的基礎介紹頁面，熟悉雲端部署流程。
+                        </p>
+                        <div class="mt-4 flex items-center text-sm text-yellow-600 font-medium">
+                            前往專案 <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- HW7 -->
+                <a href="https://z72123.github.io/HW7_U11104022/" target="_blank" class="card-hover bg-white overflow-hidden rounded-lg shadow-sm border border-gray-100 block group">
+                    <div class="h-2 bg-purple-500"></div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                                HW 7
+                            </span>
+                            <i class="fa-brands fa-github text-gray-400 group-hover:text-purple-600 transition-colors"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900 group-hover:text-purple-600 transition-colors">重力測勘作業</h3>
+                        <p class="mt-2 text-sm text-gray-500">
+                            使用 GitHub Pages 部署的重力測勘報告網頁，展示重力異常的分析與解釋。
+                        </p>
+                        <div class="mt-4 flex items-center text-sm text-purple-600 font-medium">
+                            瀏覽網頁 <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- HW8 -->
+                <a href="https://huggingface.co/spaces/Z72123/freeair-gtavity" target="_blank" class="card-hover bg-white overflow-hidden rounded-lg shadow-sm border border-gray-100 block group">
+                    <div class="h-2 bg-orange-500"></div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                                HW 8
+                            </span>
+                            <i class="fa-solid fa-chart-line text-gray-400 group-hover:text-orange-500 transition-colors"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900 group-hover:text-orange-600 transition-colors">Gradio 互動程式</h3>
+                        <p class="mt-2 text-sm text-gray-500">
+                            Free Air Anomaly 概念展示。利用 Gradio 建立互動式介面，讓使用者調整參數並即時觀察重力異常變化。
+                        </p>
+                        <div class="mt-4 flex items-center text-sm text-orange-600 font-medium">
+                            試玩程式 <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- HW9 -->
+                <div class="card-hover bg-white overflow-hidden rounded-lg shadow-sm border border-gray-100 block group">
+                    <div class="h-2 bg-blue-500"></div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                HW 9
+                            </span>
+                            <i class="fa-solid fa-robot text-gray-400 group-hover:text-blue-500 transition-colors"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900 group-hover:text-blue-600 transition-colors">專屬 AI 小助手</h3>
+                        <p class="mt-2 text-sm text-gray-500">
+                            建立個人化的地球物理知識庫與 AI 助理，提升學習效率與資料檢索能力。
+                        </p>
+                        <div class="mt-4 flex space-x-3">
+                            <a href="https://www.notion.so/Dify-U11104022-2a96636395b580aa821ef9ae6d091790?source=copy_link" target="_blank" class="text-sm text-blue-600 font-medium hover:underline">
+                                <i class="fa-solid fa-book mr-1"></i>Notion
+                            </a>
+                            <a href="https://udify.app/workflow/lgcgpFF9BWLuE9fL" target="_blank" class="text-sm text-blue-600 font-medium hover:underline">
+                                <i class="fa-solid fa-play mr-1"></i>Udify App
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HW10 -->
+                <a href="https://github.com/z72123/HW10_U11104022/blob/main/pygmt_plot_plate_boundary.ipynb" target="_blank" class="card-hover bg-white overflow-hidden rounded-lg shadow-sm border border-gray-100 block group">
+                    <div class="h-2 bg-green-500"></div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                HW 10
+                            </span>
+                            <i class="fa-solid fa-globe text-gray-400 group-hover:text-green-500 transition-colors"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900 group-hover:text-green-600 transition-colors">板塊邊界繪圖</h3>
+                        <p class="mt-2 text-sm text-gray-500">
+                            使用 PyGMT 繪製專業地圖，疊合板塊邊界、地形、火山與歷史著名地震分布，展現數據繪圖能力。
+                        </p>
+                        <div class="mt-4 flex items-center text-sm text-green-600 font-medium">
+                            查看 Notebook <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="flex justify-center md:justify-start">
+                   <p class="text-gray-400 text-sm">
+                       &copy; 2024-2025 地球物理學期末專題報告. U11104022. All rights reserved.
+                   </p>
+                </div>
+                <div class="mt-8 md:mt-0 flex justify-center md:justify-end space-x-6">
+                    <p class="text-gray-500 text-sm italic">
+                        "Learning by doing, discovering by exploring."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
