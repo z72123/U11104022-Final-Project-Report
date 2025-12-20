@@ -8,7 +8,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
         :root {
@@ -26,7 +25,7 @@
 
         /* Navbar Styling */
         .navbar {
-            background: rgba(44, 62, 80, 0.9);
+            background: rgba(44, 62, 80, 0.95);
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
@@ -83,14 +82,13 @@
             height: 100%;
             border-radius: 50%;
             background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Earth_map_1024x512.jpg/1024px-Earth_map_1024x512.jpg');
-            background-size: 200% 100%; /* Make texture double width for looping */
+            background-size: 200% 100%;
             box-shadow: inset 0 0 50px rgba(0,0,0,0.9), 0 0 20px rgba(100, 200, 255, 0.2);
             animation: rotateEarth 30s linear infinite;
             position: relative;
         }
 
         .earth::after {
-            /* Atmosphere Glow */
             content: "";
             position: absolute;
             top: 0;
@@ -106,7 +104,6 @@
             100% { background-position: -200% 0; }
         }
 
-        /* Responsive adjustments for Earth */
         @media (max-width: 768px) {
             .earth-container {
                 width: 300px;
@@ -231,7 +228,7 @@
             <div class="earth"></div>
         </div>
         
-        <div class="container text-center hero-content" data-aos="fade-up">
+        <div class="container text-center hero-content">
             <h1>探索地球的脈動</h1>
             <p class="lead">114-1 地球物理通論期末專題報告</p>
             <p class="mb-4 text-light opacity-75">史地四 U11104022 張以蓁</p>
@@ -243,11 +240,11 @@
 
     <section id="masters" class="bg-white">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">大師演講：聆聽地球的聲音</h2>
-            <p class="text-center text-muted mb-5" data-aos="fade-up" data-aos-delay="100">透過專家的視角，深入了解板塊、火山與 AI 地震監測的前沿知識。</p>
+            <h2 class="section-title">大師演講：聆聽地球的聲音</h2>
+            <p class="text-center text-muted mb-5">透過專家的視角，深入了解板塊、火山與 AI 地震監測的前沿知識。</p>
 
             <div class="row g-4">
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-4">
                     <div class="card h-100">
                         <div class="card-header"><i class="fas fa-x-ray me-2"></i>甘禮有 博士</div>
                         <div class="card-body d-flex flex-column">
@@ -262,7 +259,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-lg-4">
                     <div class="card h-100">
                         <div class="card-header"><i class="fas fa-fire me-2"></i>黃有志 博士</div>
                         <div class="card-body d-flex flex-column">
@@ -277,7 +274,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="col-lg-4">
                     <div class="card h-100">
                         <div class="card-header"><i class="fas fa-robot me-2"></i>廖勿渝 博士</div>
                         <div class="card-body d-flex flex-column">
@@ -391,10 +388,10 @@
 
     <section id="theory" style="background-color: #ecf0f1;">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">理論推導與實驗測勘</h2>
+            <h2 class="section-title">理論推導與實驗測勘</h2>
             
             <div class="row mt-5">
-                <div class="col-md-12 mb-5" data-aos="fade-right">
+                <div class="col-md-12 mb-5">
                     <div class="card p-4">
                         <h3 class="mb-4"><span class="badge bg-primary">作業 4</span> 折射震測公式推導</h3>
                         <p>理解震波如何在不同地層介面發生折射，並推導 Crossover Distance (Xcr) 與走時公式。</p>
@@ -415,7 +412,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-12" data-aos="fade-left">
+                <div class="col-md-12">
                     <div class="card p-4">
                         <h3 class="mb-4"><span class="badge bg-success">作業 5</span> 校園震測實驗報告</h3>
                         <div class="row">
@@ -453,11 +450,11 @@
 
     <section id="digital-tools" class="bg-white">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">數位工具與 AI 基礎建設</h2>
+            <h2 class="section-title">數位工具與 AI 基礎建設</h2>
             <p class="text-center text-muted mb-5">工欲善其事，必先利其器。這四項作業建構了從雲端環境架設、資料收集、學習歷程記錄到個人 AI 助理的完整基礎。</p>
             
             <div class="row g-4">
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-6">
                     <div class="card h-100 border-0 shadow-sm" style="background: linear-gradient(to bottom right, #ffffff, #f8f9fa);">
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex align-items-center mb-3">
@@ -471,7 +468,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-6">
                     <div class="card h-100 border-0 shadow-sm" style="background: linear-gradient(to bottom right, #ffffff, #f8f9fa);">
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex align-items-center mb-3">
@@ -485,7 +482,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-md-6">
                     <div class="card h-100 border-0 shadow-sm" style="background: linear-gradient(to bottom right, #ffffff, #f8f9fa);">
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex align-items-center mb-3">
@@ -507,7 +504,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="col-md-6">
                     <div class="card h-100 border-0 shadow-sm" style="background: linear-gradient(to bottom right, #ffffff, #f8f9fa);">
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex align-items-center mb-3">
@@ -527,11 +524,11 @@
 
     <section id="visualization" style="background-color: #e9ecef;">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">地球物理資料視覺化與分析</h2>
+            <h2 class="section-title">地球物理資料視覺化與分析</h2>
             <p class="text-center text-muted mb-5">利用 Python (PyGMT, Gradio) 將抽象的數據轉化為直觀的地圖與互動模型。</p>
 
             <div class="row g-4">
-                <div class="col-md-6" data-aos="fade-right">
+                <div class="col-md-6">
                     <div class="card h-100">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center mb-3">
@@ -547,7 +544,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6" data-aos="fade-left">
+                <div class="col-md-6">
                     <div class="card h-100">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center mb-3">
@@ -566,7 +563,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-6">
                     <div class="card h-100 border-warning">
                         <div class="card-header bg-warning text-dark">作業 11: PyGMT 教學網站</div>
                         <div class="card-body">
@@ -579,7 +576,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-6">
                     <div class="card h-100 border-info">
                         <div class="card-header bg-info text-white">作業 8: Free Air Anomaly 互動程式</div>
                         <div class="card-body">
@@ -602,8 +599,20 @@
             <p>114 學年度第一學期 期末專題報告</p>
             <p>指導教授：陳達毅 | 學生：張以蓁 (U11104022)</p>
             <hr class="bg-light" style="width: 50%; margin: 20px auto;">
-            <p class="small">Powered by Bootstrap 5, AOS & GitHub Pages</p>
+            <p class="small">Powered by Bootstrap 5 & GitHub Pages</p>
         </div>
     </footer>
 
-    <script src="
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar color change on scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.navbar').classList.add('shadow');
+            } else {
+                document.querySelector('.navbar').classList.remove('shadow');
+            }
+        });
+    </script>
+</body>
+</html>
