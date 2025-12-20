@@ -13,7 +13,7 @@
     <style>
         :root {
             --primary-color: #2c3e50;
-            --accent-color: #e67e22; /* 地質感的橘褐色 */
+            --accent-color: #e67e22;
             --light-bg: #f8f9fa;
         }
 
@@ -26,7 +26,7 @@
 
         /* Navbar Styling */
         .navbar {
-            background: rgba(44, 62, 80, 0.95);
+            background: rgba(44, 62, 80, 0.9);
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
@@ -35,18 +35,85 @@
             letter-spacing: 1px;
         }
 
-        /* Hero Section */
+        /* Hero Section with 3D Earth */
         .hero {
-            background: linear-gradient(135deg, rgba(44,62,80,0.9), rgba(44,62,80,0.7)), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            position: relative;
             height: 100vh;
+            background: #000 url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center center no-repeat;
+            background-size: cover;
             display: flex;
             align-items: center;
+            justify-content: center;
+            overflow: hidden;
             color: white;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+
+        /* 3D Earth Animation CSS */
+        .earth-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 450px;
+            height: 450px;
+            z-index: 2;
+            opacity: 0.8;
+            pointer-events: none; /* Let clicks pass through */
+        }
+
+        .earth {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Earth_map_1024x512.jpg/1024px-Earth_map_1024x512.jpg');
+            background-size: 200% 100%; /* Make texture double width for looping */
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.9), 0 0 20px rgba(100, 200, 255, 0.2);
+            animation: rotateEarth 30s linear infinite;
+            position: relative;
+        }
+
+        .earth::after {
+            /* Atmosphere Glow */
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(78, 169, 255, 0.4);
+        }
+
+        @keyframes rotateEarth {
+            0% { background-position: 0 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Responsive adjustments for Earth */
+        @media (max-width: 768px) {
+            .earth-container {
+                width: 300px;
+                height: 300px;
+            }
+        }
+
         .hero h1 {
             font-size: 3.5rem;
             font-weight: 700;
@@ -55,6 +122,7 @@
         .hero .lead {
             font-size: 1.5rem;
             margin-bottom: 2rem;
+            font-weight: 300;
         }
 
         /* Section Styling */
@@ -114,7 +182,7 @@
         }
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             border-radius: 8px;
@@ -159,13 +227,16 @@
     </nav>
 
     <header class="hero" id="about">
-        <div class="container text-center" data-aos="fade-up">
+        <div class="earth-container">
+            <div class="earth"></div>
+        </div>
+        
+        <div class="container text-center hero-content" data-aos="fade-up">
             <h1>探索地球的脈動</h1>
-            <p class="lead">113-1 地球物理通論期末專題報告</p>
-            <p class="mb-4">史地四 U11104022 張以蓁</p>
+            <p class="lead">114-1 地球物理通論期末專題報告</p>
+            <p class="mb-4 text-light opacity-75">史地四 U11104022 張以蓁</p>
             <div class="d-flex justify-content-center gap-3">
-                <a href="#masters" class="btn btn-warning btn-lg px-4 rounded-pill">開始探索 <i class="fas fa-arrow-down ms-2"></i></a>
-                <a href="https://github.com/z72123/geophysics-class-2025" target="_blank" class="btn btn-outline-light btn-lg px-4 rounded-pill"><i class="fab fa-github ms-2"></i> Github Repo</a>
+                <a href="#masters" class="btn btn-warning btn-lg px-5 rounded-pill shadow-lg">開始探索 <i class="fas fa-arrow-down ms-2"></i></a>
             </div>
         </div>
     </header>
@@ -383,73 +454,73 @@
     <section id="digital-tools" class="bg-white">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">數位工具與 AI 基礎建設</h2>
-            <p class="text-center text-muted mb-5">工欲善其事，必先利其器。這部分展示了從雲端環境架設、學習歷程記錄到個人 AI 助理的建置過程。</p>
+            <p class="text-center text-muted mb-5">工欲善其事，必先利其器。這四項作業建構了從雲端環境架設、資料收集、學習歷程記錄到個人 AI 助理的完整基礎。</p>
             
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card h-100 border-0 shadow-sm" style="background: linear-gradient(to bottom right, #ffffff, #f1f1f1);">
-                        <div class="card-body">
-                            <div class="mb-3 text-warning"><i class="fas fa-cube fa-2x"></i></div>
-                            <h5 class="card-title">作業 1: HuggingFace 初探</h5>
-                            <p class="card-text small text-muted">**目的**：熟悉全球最大的 AI 開源社區 HuggingFace。</p>
-                            <p class="card-text small">建立個人的 Space，並初步嘗試部署簡單的 AI 模型，為後續的互動程式打下基礎。</p>
-                            <a href="https://huggingface.co/spaces/Z72123/Intro-to-Geophysics" class="btn btn-sm btn-outline-dark mt-auto" target="_blank">View Space</a>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100 border-0 shadow-sm" style="background: linear-gradient(to bottom right, #ffffff, #f8f9fa);">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="text-warning me-3"><i class="fas fa-cube fa-2x"></i></div>
+                                <h5 class="card-title mb-0">作業 1: HuggingFace 初探</h5>
+                            </div>
+                            <p class="card-text text-muted">**目的：熟悉全球最大的 AI 開源社區 HuggingFace。**</p>
+                            <p class="card-text">建立個人的 Space，並初步嘗試部署簡單的 AI 模型，為後續的互動程式打下基礎。這是我踏入 AI 應用開發的第一步。</p>
+                            <a href="https://huggingface.co/spaces/Z72123/Intro-to-Geophysics" class="btn btn-outline-dark mt-auto w-100" target="_blank">View Space</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card h-100 border-0 shadow-sm" style="background: linear-gradient(to bottom right, #ffffff, #f1f1f1);">
-                        <div class="card-body">
-                            <div class="mb-3 text-warning"><i class="fab fa-blogger fa-2x"></i></div>
-                            <h5 class="card-title">作業 2: Blogger 學習歷程</h5>
-                            <p class="card-text small text-muted">**目的**：建立持續性的學習反思機制。</p>
-                            <p class="card-text small">利用 Google Blogger 紀錄每週的課程重點與實作心得，培養將技術知識轉化為文字輸出的能力。</p>
-                            <a href="https://geophysics-overview.blogspot.com/2025/09/114-1_16.html" class="btn btn-sm btn-outline-dark mt-auto" target="_blank">View Blog</a>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100 border-0 shadow-sm" style="background: linear-gradient(to bottom right, #ffffff, #f8f9fa);">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="text-warning me-3"><i class="fab fa-blogger fa-2x"></i></div>
+                                <h5 class="card-title mb-0">作業 2: Blogger 學習歷程</h5>
+                            </div>
+                            <p class="card-text text-muted">**目的：建立持續性的學習反思機制。**</p>
+                            <p class="card-text">利用 Google Blogger 紀錄每週的課程重點與實作心得，培養將技術知識轉化為文字輸出的能力，累積屬於自己的知識庫。</p>
+                            <a href="https://geophysics-overview.blogspot.com/2025/09/114-1_16.html" class="btn btn-outline-dark mt-auto w-100" target="_blank">View Blog</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card h-100 border-0 shadow-sm" style="background: linear-gradient(to bottom right, #ffffff, #f1f1f1);">
-                        <div class="card-body">
-                            <div class="mb-3 text-warning"><i class="fas fa-robot fa-2x"></i></div>
-                            <h5 class="card-title">作業 9: Dify 個人 AI 助手</h5>
-                            <p class="card-text small text-muted">**目的**：利用 RAG 技術打造專屬知識庫。</p>
-                            <p class="card-text small">使用 Dify 平台，結合課堂講義與筆記，訓練一個能回答地球物理相關問題的 AI 聊天機器人。</p>
-                            <a href="https://udify.app/workflow/lgcgpFF9BWLuE9fL" class="btn btn-sm btn-outline-primary mt-auto" target="_blank">Try AI Bot</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="400">
-                    <div class="card border-primary mb-3">
-                        <div class="card-header bg-primary text-white">
-                            <i class="fab fa-python me-2"></i> 作業 3: GitHub Codespaces 與 ObsPy 實作
-                        </div>
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col-md-8">
-                                    [cite_start]<h5 class="card-title">雲端地震波形處理環境建置 [cite: 4, 12]</h5>
-                                    [cite_start]<p class="card-text">**作業目的**：熟悉 GitHub Codespaces 雲端開發環境，並學習使用 ObsPy 套件從 IRIS FDSN 資料庫下載地震波形資料 [cite: 4, 5]。透過這次練習，我掌握了以下核心技能：</p>
-                                    <ul class="list-group list-group-flush mb-3">
-                                        [cite_start]<li class="list-group-item"><i class="fas fa-check text-success me-2"></i>如何在雲端環境中撰寫與執行 Python 程式 [cite: 7]。</li>
-                                        [cite_start]<li class="list-group-item"><i class="fas fa-check text-success me-2"></i>透過 FDSN 介面連線至 IRIS 資料庫抓取台灣測站的地震資料 [cite: 8, 16]。</li>
-                                        [cite_start]<li class="list-group-item"><i class="fas fa-check text-success me-2"></i>以 ObsPy 進行波形資料處理（去均值、濾波）與繪圖 [cite: 9, 19, 20]。</li>
-                                        [cite_start]<li class="list-group-item"><i class="fas fa-check text-success me-2"></i>將處理後的波形結果以圖檔形式輸出保存 [cite: 10]。</li>
-                                    </ul>
-                                    <div class="d-flex gap-2">
-                                        <a href="assets/作業3說明.pdf" class="btn btn-outline-primary" target="_blank"><i class="fas fa-file-pdf me-2"></i>作業說明 PDF</a>
-                                        <a href="https://github.com/z72123/geophysics-class-2025" class="btn btn-outline-dark" target="_blank"><i class="fab fa-github me-2"></i>檢視程式碼</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 text-center text-muted">
-                                    <i class="fas fa-code-branch fa-6x opacity-25"></i>
-                                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card h-100 border-0 shadow-sm" style="background: linear-gradient(to bottom right, #ffffff, #f8f9fa);">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="text-primary me-3"><i class="fab fa-python fa-2x"></i></div>
+                                <h5 class="card-title mb-0">作業 3: Codespaces 與 ObsPy</h5>
+                            </div>
+                            <p class="card-text text-muted">**目的：熟悉雲端開發環境與地震波形處理。**</p>
+                            <ul class="list-unstyled small mb-3">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>在 Codespaces 雲端環境撰寫與執行 Python。</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>透過 FDSN 介面連線 IRIS 資料庫抓取資料。</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>使用 ObsPy 進行波形去均值、濾波與繪圖。</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>將處理後的波形輸出保存為圖檔。</li>
+                            </ul>
+                            <div class="mt-auto d-flex gap-2">
+                                <a href="assets/作業3說明.pdf" class="btn btn-outline-primary w-50" target="_blank">作業說明</a>
+                                <a href="https://github.com/z72123/geophysics-class-2025" class="btn btn-outline-dark w-50" target="_blank">程式碼</a>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card h-100 border-0 shadow-sm" style="background: linear-gradient(to bottom right, #ffffff, #f8f9fa);">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="text-warning me-3"><i class="fas fa-robot fa-2x"></i></div>
+                                <h5 class="card-title mb-0">作業 9: Dify 個人 AI 助手</h5>
+                            </div>
+                            <p class="card-text text-muted">**目的：利用 RAG 技術打造專屬知識庫。**</p>
+                            <p class="card-text">使用 Dify 平台，結合課堂講義與筆記，訓練一個能回答地球物理相關問題的 AI 聊天機器人，實現智慧化的知識檢索。</p>
+                            <a href="https://udify.app/workflow/lgcgpFF9BWLuE9fL" class="btn btn-outline-primary mt-auto w-100" target="_blank">Try AI Bot</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -528,31 +599,11 @@
     <footer id="portfolio">
         <div class="container">
             <h3>地球物理通論</h3>
-            <p>113 學年度第一學期 期末專題報告</p>
-            <p>指導教授：[教授姓名] | 學生：張以蓁 (U11104022)</p>
+            <p>114 學年度第一學期 期末專題報告</p>
+            <p>指導教授：陳達毅 | 學生：張以蓁 (U11104022)</p>
             <hr class="bg-light" style="width: 50%; margin: 20px auto;">
             <p class="small">Powered by Bootstrap 5, AOS & GitHub Pages</p>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Initialize Animate On Scroll
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
-        });
-
-        // Navbar color change on scroll
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                document.querySelector('.navbar').classList.add('shadow');
-            } else {
-                document.querySelector('.navbar').classList.remove('shadow');
-            }
-        });
-    </script>
-</body>
-</html>
+    <script src="
