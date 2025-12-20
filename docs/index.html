@@ -89,7 +89,7 @@
             background: white;
         }
         .card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
         .card-header {
@@ -129,33 +129,12 @@
             height: 100%;
         }
 
-        /* Highlight Text */
-        .highlight {
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-
         /* Footer */
         footer {
             background: var(--primary-color);
             color: white;
             padding: 40px 0;
             text-align: center;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 5px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #555;
         }
     </style>
 </head>
@@ -170,11 +149,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">關於</a></li>
                     <li class="nav-item"><a class="nav-link" href="#masters">大師演講</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#theory">理論與實作</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#ai-tools">AI 應用</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio">其他成果</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#theory">理論實作</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#digital-tools">數位工具</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#visualization">資料視覺化</a></li>
                 </ul>
             </div>
         </div>
@@ -183,7 +161,7 @@
     <header class="hero" id="about">
         <div class="container text-center" data-aos="fade-up">
             <h1>探索地球的脈動</h1>
-            <p class="lead">114-1 地球物理通論期末專題報告</p>
+            <p class="lead">113-1 地球物理通論期末專題報告</p>
             <p class="mb-4">史地四 U11104022 張以蓁</p>
             <div class="d-flex justify-content-center gap-3">
                 <a href="#masters" class="btn btn-warning btn-lg px-4 rounded-pill">開始探索 <i class="fas fa-arrow-down ms-2"></i></a>
@@ -402,89 +380,73 @@
     <div class="modal fade" id="imgModal1" tabindex="-1"><div class="modal-dialog modal-lg"><div class="modal-content"><img src="assets/作業4-1.jpg" class="img-fluid"></div></div></div>
     <div class="modal fade" id="imgModal2" tabindex="-1"><div class="modal-dialog modal-lg"><div class="modal-content"><img src="assets/作業4-2.jpg" class="img-fluid"></div></div></div>
 
-    <section id="ai-tools" class="bg-white">
+    <section id="digital-tools" class="bg-white">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">AI 工具應用與實作成果</h2>
+            <h2 class="section-title" data-aos="fade-up">數位工具與 AI 基礎建設</h2>
+            <p class="text-center text-muted mb-5">工欲善其事，必先利其器。這部分展示了從雲端環境架設、學習歷程記錄到個人 AI 助理的建置過程。</p>
+            
             <div class="row g-4">
-                
-                <div class="col-md-6" data-aos="zoom-in">
-                    <div class="card border-info mb-3">
-                        <div class="card-header bg-info text-white">作業 8: Gradio 重力異常互動程式</div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100 border-0 shadow-sm" style="background: linear-gradient(to bottom right, #ffffff, #f1f1f1);">
                         <div class="card-body">
-                            <p>在 HuggingFace 上建立的互動式應用，展示 Free Air Anomaly (自由空間異常) 的概念。</p>
-                            <div class="ratio ratio-16x9 mb-3">
-                                <iframe src="https://z72123-freeair-gtavity.hf.space" frameborder="0"></iframe>
-                            </div>
-                            <a href="https://huggingface.co/spaces/Z72123/freeair-gtavity" target="_blank" class="btn btn-info text-white">前往 HuggingFace 操作</a>
+                            <div class="mb-3 text-warning"><i class="fas fa-cube fa-2x"></i></div>
+                            <h5 class="card-title">作業 1: HuggingFace 初探</h5>
+                            <p class="card-text small text-muted">**目的**：熟悉全球最大的 AI 開源社區 HuggingFace。</p>
+                            <p class="card-text small">建立個人的 Space，並初步嘗試部署簡單的 AI 模型，為後續的互動程式打下基礎。</p>
+                            <a href="https://huggingface.co/spaces/Z72123/Intro-to-Geophysics" class="btn btn-sm btn-outline-dark mt-auto" target="_blank">View Space</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="card border-warning mb-3">
-                        <div class="card-header bg-warning text-dark">作業 11: PyGMT 教學網站</div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100 border-0 shadow-sm" style="background: linear-gradient(to bottom right, #ffffff, #f1f1f1);">
                         <div class="card-body">
-                            <p>製作 PyGMT 繪圖教學，包含程式碼範例。利用 GitHub Pages 託管靜態網頁。</p>
-                            <div class="ratio ratio-16x9 mb-3">
-                                <iframe src="https://z72123.github.io/HW11_U11104022-learing-PyGMT/" frameborder="0"></iframe>
-                            </div>
-                            <a href="https://z72123.github.io/HW11_U11104022-learing-PyGMT/" target="_blank" class="btn btn-warning">查看教學網站</a>
+                            <div class="mb-3 text-warning"><i class="fab fa-blogger fa-2x"></i></div>
+                            <h5 class="card-title">作業 2: Blogger 學習歷程</h5>
+                            <p class="card-text small text-muted">**目的**：建立持續性的學習反思機制。</p>
+                            <p class="card-text small">利用 Google Blogger 紀錄每週的課程重點與實作心得，培養將技術知識轉化為文字輸出的能力。</p>
+                            <a href="https://geophysics-overview.blogspot.com/2025/09/114-1_16.html" class="btn btn-sm btn-outline-dark mt-auto" target="_blank">View Blog</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-3" data-aos="fade-up">
-                    <div class="card h-100">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card h-100 border-0 shadow-sm" style="background: linear-gradient(to bottom right, #ffffff, #f1f1f1);">
                         <div class="card-body">
-                            <h5 class="card-title">作業 1: HuggingFace</h5>
-                            <p class="small text-muted">初步接觸 HuggingFace 平台。</p>
-                            <a href="https://huggingface.co/spaces/Z72123/Intro-to-Geophysics" class="btn btn-sm btn-outline-secondary stretched-link" target="_blank">View Project</a>
+                            <div class="mb-3 text-warning"><i class="fas fa-robot fa-2x"></i></div>
+                            <h5 class="card-title">作業 9: Dify 個人 AI 助手</h5>
+                            <p class="card-text small text-muted">**目的**：利用 RAG 技術打造專屬知識庫。</p>
+                            <p class="card-text small">使用 Dify 平台，結合課堂講義與筆記，訓練一個能回答地球物理相關問題的 AI 聊天機器人。</p>
+                            <a href="https://udify.app/workflow/lgcgpFF9BWLuE9fL" class="btn btn-sm btn-outline-primary mt-auto" target="_blank">Try AI Bot</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">作業 2: Blogger</h5>
-                            <p class="small text-muted">建立學習歷程部落格。</p>
-                            <a href="https://geophysics-overview.blogspot.com/2025/09/114-1_16.html" class="btn btn-sm btn-outline-secondary stretched-link" target="_blank">View Blog</a>
+
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card border-primary mb-3">
+                        <div class="card-header bg-primary text-white">
+                            <i class="fab fa-python me-2"></i> 作業 3: GitHub Codespaces 與 ObsPy 實作
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card h-100">
                         <div class="card-body">
-                            <h5 class="card-title">作業 3: Codespaces</h5>
-                            <p class="small text-muted">ObsPy 地震波形下載與處理。</p>
-                            <a href="assets/作業3說明.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">View PDF</a>
-                            <a href="https://github.com/z72123/geophysics-class-2025" class="btn btn-sm btn-outline-dark mt-2" target="_blank">Github Code</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">作業 9: AI 小助手</h5>
-                            <p class="small text-muted">使用 Dify 建立專屬知識庫助手。</p>
-                            <a href="https://udify.app/workflow/lgcgpFF9BWLuE9fL" class="btn btn-sm btn-outline-primary stretched-link" target="_blank">Try AI Bot</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">作業 7: 重力測勘</h5>
-                            <p>Github Pages 展示重力測勘成果。</p>
-                            <a href="https://z72123.github.io/HW7_U11104022/" class="btn btn-sm btn-outline-secondary stretched-link" target="_blank">Go to Site</a>
-                        </div>
-                    </div>
-                </div>
-                 <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">作業 10: 板塊繪圖</h5>
-                            <p>使用 PyGMT 繪製板塊、火山與地震分佈。</p>
-                            <a href="https://github.com/z72123/HW10_U11104022/blob/main/pygmt_plot_plate_boundary.ipynb" class="btn btn-sm btn-outline-secondary stretched-link" target="_blank">View Notebook</a>
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    [cite_start]<h5 class="card-title">雲端地震波形處理環境建置 [cite: 4, 12]</h5>
+                                    [cite_start]<p class="card-text">**作業目的**：熟悉 GitHub Codespaces 雲端開發環境，並學習使用 ObsPy 套件從 IRIS FDSN 資料庫下載地震波形資料 [cite: 4, 5]。透過這次練習，我掌握了以下核心技能：</p>
+                                    <ul class="list-group list-group-flush mb-3">
+                                        [cite_start]<li class="list-group-item"><i class="fas fa-check text-success me-2"></i>如何在雲端環境中撰寫與執行 Python 程式 [cite: 7]。</li>
+                                        [cite_start]<li class="list-group-item"><i class="fas fa-check text-success me-2"></i>透過 FDSN 介面連線至 IRIS 資料庫抓取台灣測站的地震資料 [cite: 8, 16]。</li>
+                                        [cite_start]<li class="list-group-item"><i class="fas fa-check text-success me-2"></i>以 ObsPy 進行波形資料處理（去均值、濾波）與繪圖 [cite: 9, 19, 20]。</li>
+                                        [cite_start]<li class="list-group-item"><i class="fas fa-check text-success me-2"></i>將處理後的波形結果以圖檔形式輸出保存 [cite: 10]。</li>
+                                    </ul>
+                                    <div class="d-flex gap-2">
+                                        <a href="assets/作業3說明.pdf" class="btn btn-outline-primary" target="_blank"><i class="fas fa-file-pdf me-2"></i>作業說明 PDF</a>
+                                        <a href="https://github.com/z72123/geophysics-class-2025" class="btn btn-outline-dark" target="_blank"><i class="fab fa-github me-2"></i>檢視程式碼</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center text-muted">
+                                    <i class="fas fa-code-branch fa-6x opacity-25"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -492,11 +454,82 @@
         </div>
     </section>
 
+    <section id="visualization" style="background-color: #e9ecef;">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">地球物理資料視覺化與分析</h2>
+            <p class="text-center text-muted mb-5">利用 Python (PyGMT, Gradio) 將抽象的數據轉化為直觀的地圖與互動模型。</p>
+
+            <div class="row g-4">
+                <div class="col-md-6" data-aos="fade-right">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="card-title mb-0">作業 7: 重力測勘資料處理</h5>
+                                <span class="badge bg-secondary">Github Pages</span>
+                            </div>
+                            <p class="card-text">處理重力測勘數據，進行各種修正（如自由空間修正、布蓋修正），並將結果發布於網頁。</p>
+                            <div class="ratio ratio-16x9 mb-3 border rounded">
+                                <iframe src="https://z72123.github.io/HW7_U11104022/" title="HW7 Preview"></iframe>
+                            </div>
+                            <a href="https://z72123.github.io/HW7_U11104022/" class="btn btn-outline-secondary w-100" target="_blank">前往網頁查看成果</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6" data-aos="fade-left">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="card-title mb-0">作業 10: 板塊邊界繪圖</h5>
+                                <span class="badge bg-warning text-dark">PyGMT</span>
+                            </div>
+                            <p class="card-text">利用 PyGMT 強大的繪圖功能，整合地形、火山位置、歷史地震與板塊邊界資料，繪製出精美的地質地圖。</p>
+                            <div class="bg-light rounded d-flex align-items-center justify-content-center mb-3" style="height: 200px;">
+                                <div class="text-center">
+                                    <i class="fas fa-map-marked-alt fa-3x text-muted mb-2"></i>
+                                    <p class="small text-muted">Jupyter Notebook 實作</p>
+                                </div>
+                            </div>
+                            <a href="https://github.com/z72123/HW10_U11104022/blob/main/pygmt_plot_plate_boundary.ipynb" class="btn btn-outline-warning w-100" target="_blank">查看 Notebook 程式碼</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100 border-warning">
+                        <div class="card-header bg-warning text-dark">作業 11: PyGMT 教學網站</div>
+                        <div class="card-body">
+                            <p class="card-text">這不僅是作業，更是教學。我製作了一份 PyGMT 的入門教學網頁，並附上完整的程式碼範例，希望能幫助初學者上手。</p>
+                            <div class="ratio ratio-16x9 mb-3 border rounded">
+                                <iframe src="https://z72123.github.io/HW11_U11104022-learing-PyGMT/" title="PyGMT Tutorial"></iframe>
+                            </div>
+                            <a href="https://z72123.github.io/HW11_U11104022-learing-PyGMT/" class="btn btn-warning w-100" target="_blank">開始學習 PyGMT</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100 border-info">
+                        <div class="card-header bg-info text-white">作業 8: Free Air Anomaly 互動程式</div>
+                        <div class="card-body">
+                            <p class="card-text">將重力異常理論視覺化！使用 Gradio 框架建立互動網頁，使用者調整高度參數，即可即時觀察 Free Air Anomaly 的變化。</p>
+                            <div class="ratio ratio-16x9 mb-3 border rounded">
+                                <iframe src="https://z72123-freeair-gtavity.hf.space" title="Gradio App"></iframe>
+                            </div>
+                            <a href="https://huggingface.co/spaces/Z72123/freeair-gtavity" class="btn btn-info text-white w-100" target="_blank">前往 HuggingFace 操作</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <footer id="portfolio">
         <div class="container">
             <h3>地球物理通論</h3>
-            <p>114 學年度第一學期 期末專題報告</p>
-            <p>指導教授：陳達毅 | 學生：張以蓁 (U11104022)</p>
+            <p>113 學年度第一學期 期末專題報告</p>
+            <p>指導教授：[教授姓名] | 學生：張以蓁 (U11104022)</p>
             <hr class="bg-light" style="width: 50%; margin: 20px auto;">
             <p class="small">Powered by Bootstrap 5, AOS & GitHub Pages</p>
         </div>
