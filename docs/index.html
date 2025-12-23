@@ -239,8 +239,14 @@
         <div class="container hero-content text-center">
             <h1>探索地球的脈動</h1>
             <p class="lead">結合史地視野與地球物理科技的跨領域探索之旅</p>
-            <p class="mb-5 text-light opacity-75">113-1 期末專題報告 | 史地四 U11104022 張以蓁</p>
-            <a href="#intro" class="btn btn-custom btn-lg shadow-lg">開始探索 <i class="fas fa-arrow-down ms-2"></i></a>
+            <p class="mb-5 text-light opacity-75">114-1 期末專題報告 | 史地四 U11104022 張以蓁</p>
+            
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#intro" class="btn btn-custom btn-lg shadow-lg">開始探索 <i class="fas fa-arrow-down ms-2"></i></a>
+                <a href="https://github.com/z72123/U11104022-Final-Project-Report" target="_blank" class="btn btn-outline-light btn-lg shadow-lg">
+                    <i class="fab fa-github me-2"></i> GItHUb Repo
+                </a>
+            </div>
         </div>
     </header>
 
@@ -270,7 +276,7 @@
                     <div class="p-4 bg-light rounded shadow-sm">
                         <h5><i class="fas fa-quote-left text-warning me-2"></i>跨領域的反思</h5>
                         <p class="text-muted">作為史地系的學生，我過去習慣從文獻與地圖看世界。這門課讓我學會了用「物理數據」和「程式碼」重新解讀地球。從作業 1 的 AI 初探到作業 5 的實地敲擊震測，再到最後能用 PyGMT 畫出專業地圖，這不僅是技術的累積，更是視角的轉換。</p>
-                        <p class="text-muted mb-0">本網頁將依序展示這段從 **數據獲取** 到 **智慧分析** 的完整歷程。</p>
+                        <p class="text-muted mb-0">本網頁將依序展示這段從「數據獲取」到「智慧分析」的完整歷程。</p>
                     </div>
                 </div>
             </div>
@@ -320,10 +326,10 @@
                         <div class="card-body">
                             <h5 class="card-title text-primary"><i class="fab fa-python me-2"></i>作業 3: ObsPy 波形處理</h5>
                             <p class="small text-muted">GitHub Codespaces 雲端實作</p>
-                            <p class="card-text">透過 FDSN 連線 IRIS 資料庫，抓取台灣測站數據並進行去均值與濾波處理。</p>
+                            <p class="card-text">透過 FDSN 連線 IRIS 資料庫，抓取台灣測站數據。利用 Codespaces 雲端環境確保程式碼的可執行性。</p>
                             <div class="d-grid gap-2">
                                 <a href="assets/作業3說明.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">作業說明 PDF</a>
-                                <a href="https://github.com/z72123/geophysics-class-2025" class="btn btn-sm btn-dark" target="_blank"><i class="fab fa-github me-1"></i> 檢視程式碼</a>
+                                <a href="https://github.com/z72123/geophysics-class-2025" class="btn btn-sm btn-dark" target="_blank"><i class="fas fa-play-circle me-1"></i> 查看可執行代碼</a>
                             </div>
                         </div>
                     </div>
@@ -331,10 +337,11 @@
 
                 <div class="col-lg-4 col-md-6">
                     <div class="card h-100 border-warning">
+                        <img src="assets/pygmt_preview.jpg" class="card-img-top" alt="PyGMT Map Preview" style="height: 150px; object-fit: cover; background-color: #eee;"> 
                         <div class="card-body">
                             <h5 class="card-title text-warning"><i class="fas fa-map-marked-alt me-2"></i>作業 10: PyGMT 板塊繪圖</h5>
                             <p class="small text-muted">專業地質圖繪製</p>
-                            <p class="card-text">整合地形、火山與歷史地震資料。這項作業展示了如何將抽象數據轉化為直觀的地圖資訊。</p>
+                            <p class="card-text">整合地形、火山與歷史地震資料，繪製精美的板塊邊界圖。展現資料視覺化的專業度。</p>
                             <a href="https://github.com/z72123/HW10_U11104022/blob/main/pygmt_plot_plate_boundary.ipynb" class="btn btn-warning w-100 text-dark" target="_blank">查看 Jupyter Notebook</a>
                         </div>
                     </div>
@@ -343,10 +350,10 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="card h-100 border-info">
                         <div class="card-body">
-                            <h5 class="card-title text-info"><i class="fas fa-robot me-2"></i>作業 9: Dify AI 助手</h5>
-                            <p class="small text-muted">RAG 知識庫應用</p>
-                            <p class="card-text">建立專屬的地球物理知識庫助手。這是將課堂知識結構化並透過 AI 進行檢索的創新嘗試。</p>
-                            <a href="https://udify.app/workflow/lgcgpFF9BWLuE9fL" class="btn btn-info text-white w-100" target="_blank">試用 AI 助手</a>
+                            <h5 class="card-title text-info"><i class="fas fa-robot me-2"></i>作業 9: AI 輔助分析</h5>
+                            <p class="small text-muted">Dify 知識庫 & Gemini 輔助</p>
+                            <p class="card-text">除了建立 Dify 專屬知識庫外，本專案開發過程中亦使用 <strong>Gemini</strong> 協助 PyGMT 程式碼除錯與演講重點摘要。</p>
+                            <a href="https://udify.app/workflow/lgcgpFF9BWLuE9fL" class="btn btn-info text-white w-100" target="_blank">試用 Dify AI 助手</a>
                         </div>
                     </div>
                 </div>
@@ -355,7 +362,7 @@
                     <div class="card h-100">
                         <div class="card-body">
                             <h5 class="card-title"><i class="fas fa-sliders-h me-2"></i>作業 8: 重力異常互動程式</h5>
-                            <p class="card-text">使用 <strong>Gradio</strong> 框架建置。使用者可調整參數即時觀察 Free Air Anomaly 的變化，實現互動式教學。</p>
+                            <p class="card-text">使用 <strong>Gradio</strong> 框架建置並部署於 <strong>HuggingFace Spaces</strong>。使用者可調整參數即時觀察 Free Air Anomaly 的變化，實現互動式教學。</p>
                             <div class="ratio ratio-16x9 border rounded">
                                 <iframe src="https://z72123-freeair-gtavity.hf.space"></iframe>
                             </div>
@@ -370,8 +377,8 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">作業 7: 重力測勘修正</h5>
-                                    <p class="small mb-2">包含自由空間修正與布蓋修正的實作。</p>
-                                    <a href="https://z72123.github.io/HW7_U11104022/" class="btn btn-sm btn-outline-secondary w-100" target="_blank">瀏覽 Github Pages</a>
+                                    <p class="small mb-2">包含自由空間修正與布蓋修正的實作數據分析。</p>
+                                    <a href="https://z72123.github.io/HW7_U11104022/" class="btn btn-sm btn-outline-secondary w-100" target="_blank">瀏覽 Github Pages 報告</a>
                                 </div>
                             </div>
                         </div>
@@ -379,7 +386,7 @@
                             <div class="card bg-warning bg-opacity-10">
                                 <div class="card-body">
                                     <h5 class="card-title">作業 11: PyGMT 教學網頁</h5>
-                                    <p class="small mb-2">製作教學文件，幫助他人學習 PyGMT。</p>
+                                    <p class="small mb-2">製作教學文件，將學習成果轉化為教學資源。</p>
                                     <a href="https://z72123.github.io/HW11_U11104022-learing-PyGMT/" class="btn btn-sm btn-warning w-100" target="_blank">瀏覽教學網站</a>
                                 </div>
                             </div>
@@ -495,7 +502,8 @@
     <footer>
         <div class="container">
             <h3>地球物理通論</h3>
-            <p>113 學年度第一學期 期末專題報告</p>
+            <p>114 學年度第一學期 期末專題報告</p>
+            <p>指導老師：陳達毅教授 | 學生：張以蓁 (U11104022)</p>
             <hr class="bg-light w-50 mx-auto">
             <p class="small">Powered by Bootstrap 5 & GitHub Pages | Source on <a href="https://github.com/z72123/U11104022-Final-Project-Report" class="text-warning">GitHub</a></p>
         </div>
