@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>地球物理通論期末成果展 | U11104022 張以蓁</title>
+    <title>地球物理通論期末報告 | U11104022 張以蓁</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -122,6 +122,31 @@
             margin-bottom: 1rem;
         }
 
+        /* Roadmap Styling */
+        .roadmap-step {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 40px;
+            border-left: 2px solid var(--accent-cyan);
+        }
+        .roadmap-step::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--bg-body);
+            border: 2px solid var(--accent-cyan);
+        }
+        .roadmap-title {
+            color: var(--accent-cyan);
+            font-family: 'JetBrains Mono';
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
         /* Buttons */
         .btn-tech {
             background: linear-gradient(45deg, var(--accent-cyan), #0ea5e9);
@@ -160,7 +185,7 @@
         @keyframes rotateEarth { 0% { background-position: 0 0; } 100% { background-position: -200% 0; } }
 
         /* Video Wrapper */
-        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 8px; overflow: hidden; background: #000; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 8px; overflow: hidden; background: #000; margin-bottom: 10px; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
         /* Tags */
@@ -198,11 +223,11 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link" href="#home">首頁</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#core-knowledge">核心知識解析</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#roadmap">學習旅程</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#core-knowledge">核心知識</a></li>
                         <li class="nav-item"><a class="nav-link" href="#tools">數位工具與AI</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#pygmt">PyGMT 專題</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#pygmt">PyGMT 應用</a></li>
                         <li class="nav-item"><a class="nav-link" href="#masters">大師演講</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#reflection">策展人結語</a></li>
                     </ul>
                 </div>
             </div>
@@ -217,16 +242,17 @@
         <nav class="nav flex-column gap-1">
             <a class="nav-link active" href="#home"><i class="fas fa-home"></i> 首頁</a>
             
-            <div class="text-secondary small mt-4 mb-2 px-3 tech-font opacity-50">KNOWLEDGE BASE</div>
+            <div class="text-secondary small mt-4 mb-2 px-3 tech-font opacity-50">OVERVIEW</div>
+            <a class="nav-link" href="#roadmap"><i class="fas fa-route"></i> 學習旅程地圖</a>
             <a class="nav-link" href="#core-knowledge"><i class="fas fa-brain"></i> 核心知識解析</a>
             
             <div class="text-secondary small mt-4 mb-2 px-3 tech-font opacity-50">TOOLKIT</div>
             <a class="nav-link" href="#tools"><i class="fas fa-toolbox"></i> 數位工具與 AI</a>
-            <a class="nav-link" href="#pygmt"><i class="fas fa-map"></i> PyGMT 視覺化</a>
+            <a class="nav-link" href="#pygmt"><i class="fas fa-map"></i> PyGMT 視覺化應用</a>
             
             <div class="text-secondary small mt-4 mb-2 px-3 tech-font opacity-50">INSIGHTS</div>
-            <a class="nav-link" href="#masters"><i class="fas fa-microphone-alt"></i> 大師演講摘要</a>
-            <a class="nav-link" href="#reflection"><i class="fas fa-feather-alt"></i> 策展人結語</a>
+            <a class="nav-link" href="#masters"><i class="fas fa-microphone-alt"></i> 大師演講</a>
+            <a class="nav-link" href="#reflection"><i class="fas fa-feather-alt"></i> 學期總結</a>
             
             <div class="mt-5 px-3">
                 <a href="https://github.com/z72123/U11104022-Final-Project-Report" target="_blank" class="btn btn-outline-light w-100 btn-sm tech-font">
@@ -244,11 +270,37 @@
                 <h1 class="display-3 fw-bold mb-3 text-white">探索地球的脈動</h1>
                 <p class="lead text-secondary mb-4 tech-font">&lt; Geophysics x History x Geography /&gt;</p>
                 <div class="d-flex justify-content-center gap-3">
-                    <a href="#core-knowledge" class="btn btn-tech btn-lg rounded-pill px-5 shadow-lg">Start Exploration</a>
+                    <a href="#roadmap" class="btn btn-tech btn-lg rounded-pill px-5 shadow-lg">Start Exploration</a>
                 </div>
                 <div class="mt-5 text-secondary small">
                     <p class="mb-1">114 學年度第 1 學期 | 指導教授：陳達毅</p>
                     <p>學生：史地四 U11104022 張以蓁</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="roadmap">
+            <div class="container">
+                <h2 class="section-title">學習旅程地圖</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="roadmap-step">
+                            <div class="roadmap-title">Stage 1: 建構數位基礎</div>
+                            <p class="text-secondary">環境架設、Codespaces 雲端開發 (HW1-3)。</p>
+                        </div>
+                        <div class="roadmap-step">
+                            <div class="roadmap-title">Stage 2: 驗證物理理論</div>
+                            <p class="text-secondary">折射震測公式推導、校園實地實驗 (HW4, 5)。</p>
+                        </div>
+                        <div class="roadmap-step">
+                            <div class="roadmap-title">Stage 3: 探索地球場</div>
+                            <p class="text-secondary">重力異常、古地磁與大地電磁法 (HW7, 8)。</p>
+                        </div>
+                        <div class="roadmap-step" style="border-left: none;">
+                            <div class="roadmap-title" style="margin-left: -13px;">Stage 4: 視覺化與 AI 賦能</div>
+                            <p class="text-secondary" style="margin-left: -13px;">PyGMT 繪圖、RAG 知識庫與深度學習應用。</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -266,7 +318,7 @@
                             <div class="card-icon bg-primary bg-opacity-25 text-primary"><i class="fas fa-wave-square"></i></div>
                             <h4 class="mb-3">地震波形處理</h4>
                             <p class="text-secondary small mb-3">
-                                [cite_start]<strong>ObsPy</strong> 是地震學研究的瑞士刀。原始地震紀錄往往充滿環境雜訊，我們透過以下步驟提取有效訊號 [cite: 3, 4, 19, 20]：
+                                <strong>ObsPy</strong> 是地震學研究的瑞士刀。原始地震紀錄往往充滿環境雜訊，我們透過以下步驟提取有效訊號：
                             </p>
                             <ul class="text-secondary small tech-font mb-4">
                                 <li>> FDSN 連線：即時從 IRIS 資料庫下載全球測站數據。</li>
@@ -274,8 +326,7 @@
                                 <li>> 濾波 (Filtering)：使用 Bandpass Filter (1-10Hz) 保留 P/S 波能量，濾除高頻噪訊。</li>
                             </ul>
                             <div class="mt-auto">
-                                <span class="tag border border-secondary">HW3</span>
-                                <a href="assets/作業3說明.pdf" target="_blank" class="float-end text-primary text-decoration-none small"><i class="fas fa-external-link-alt"></i> 作業說明</a>
+                                <a href="https://github.com/z72123/geophysics-class-2025" target="_blank" class="btn btn-sm btn-outline-primary w-100"><i class="fab fa-github"></i> HW3 程式碼 Repo</a>
                             </div>
                         </div>
                     </div>
@@ -285,16 +336,20 @@
                             <div class="card-icon bg-success bg-opacity-25 text-success"><i class="fas fa-hammer"></i></div>
                             <h4 class="mb-3">折射震測與數據解釋</h4>
                             <p class="text-secondary small mb-3">
-                                [cite_start]利用 <strong>司乃耳定律 (Snell's Law)</strong> 探測地下分層。當震波傳遞至高速層時會發生臨界折射 [cite: 91, 110, 118]：
+                                利用 <strong>司乃耳定律</strong> 探測地下分層。當震波傳遞至高速層時會發生臨界折射：
                             </p>
                             <ul class="text-secondary small tech-font mb-4">
-                                <li>> 走時曲線 (T-X Plot)：繪製震波到達時間與距離的關係圖。</li>
-                                <li>> 斜率分析：斜率的倒數即為地層速度 (本次實測 V1=400m/s)。</li>
-                                <li>> 截距時間 (Intercept Time)：利用交越距離 (Xcr) 或截距推算第一層厚度 (H≈4.21m)。</li>
+                                <li>> 走時曲線：繪製震波到達時間與距離的關係圖。</li>
+                                <li>> 斜率分析：斜率倒數即為地層速度 (V1=400m/s)。</li>
+                                <li>> 截距時間：利用 Xcr 推算第一層厚度 (H≈4.21m)。</li>
                             </ul>
-                            <div class="mt-auto">
-                                <span class="tag border border-secondary">HW4, HW5</span>
-                                <a href="assets/第九組震測實驗報告.pdf" target="_blank" class="float-end text-success text-decoration-none small"><i class="fas fa-file-pdf"></i> 實驗報告</a>
+                            <div class="mt-auto d-flex gap-2">
+                                <button type="button" class="btn btn-sm btn-outline-light w-50" data-bs-toggle="modal" data-bs-target="#modalHW4">
+                                    <i class="fas fa-image"></i> HW4 推導過程
+                                </button>
+                                <a href="assets/第九組震測實驗報告.pdf" target="_blank" class="btn btn-sm btn-outline-success w-50">
+                                    <i class="fas fa-file-pdf"></i> HW5 實驗報告
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -307,12 +362,12 @@
                                 透過測量地球的重力與磁場，揭示看不見的構造與歷史：
                             </p>
                             <ul class="text-secondary small tech-font mb-4">
-                                <li>> 重力異常：經由<strong>自由空間</strong>與<strong>布蓋修正</strong>，去除地形影響，揭示地下的高密度岩體或低密度沉積盆地。</li>
-                                [cite_start]<li>> 古地磁極漂移 (APWP)：岩石記錄了形成時的磁場。不同大陸的古地磁極路徑不重合，是證明<strong>板塊漂移</strong>的關鍵證據 [cite: 109, 110]。</li>
+                                <li>> 重力異常：經由自由空間與布蓋修正，去除地形影響，揭示地下密度差異。</li>
+                                <li>> 古地磁極漂移 (APWP)：岩石記錄了形成時的磁場，證明了板塊曾經移動。</li>
                             </ul>
-                            <div class="mt-auto">
-                                <span class="tag border border-secondary">HW7, HW8</span>
-                                <a href="https://huggingface.co/spaces/Z72123/freeair-gtavity" target="_blank" class="float-end text-warning text-decoration-none small"><i class="fas fa-play"></i> 互動 App</a>
+                            <div class="mt-auto d-flex gap-2">
+                                <a href="https://z72123.github.io/HW7_U11104022/" target="_blank" class="btn btn-sm btn-outline-warning w-50">HW7 測勘報告</a>
+                                <a href="https://huggingface.co/spaces/Z72123/freeair-gtavity" target="_blank" class="btn btn-sm btn-outline-light w-50">HW8 互動 App</a>
                             </div>
                         </div>
                     </div>
@@ -322,15 +377,16 @@
                             <div class="card-icon bg-primary bg-opacity-25 text-white" style="background-color: var(--accent-purple) !important;"><i class="fas fa-fire"></i></div>
                             <h4 class="mb-3">大地電磁法 (MT) 與地熱</h4>
                             <p class="text-secondary small mb-3">
-                                [cite_start]<strong>Magnetotellurics (MT)</strong> 利用天然電磁場探測地下電阻率結構，是深部地熱探勘的核心技術 [cite: 8, 9]：
+                                <strong>Magnetotellurics (MT)</strong> 利用天然電磁場探測地下電阻率結構，是深部地熱探勘的核心技術：
                             </p>
                             <ul class="text-secondary small tech-font mb-4">
-                                <li>> 低電阻異常：熱水與熱液換質的黏土層導電性高，在 MT 剖面上呈現低電阻特徵。</li>
-                                <li>> 儲集層定位：利用 MT 辨識「黏土蓋層」與下方的「高溫儲集層」，如延平地熱案場的探勘實例。</li>
+                                <li>> 低電阻異常：熱水與黏土層具高導電性，在 MT 剖面呈現低阻特徵。</li>
+                                <li>> 儲集層定位：利用 MT 辨識「黏土蓋層」與下方的「高溫儲集層」。</li>
                             </ul>
                             <div class="mt-auto">
-                                <span class="tag border border-secondary">課堂講義</span>
-                                <a href="assets/地熱探勘上課資料.pdf" target="_blank" class="float-end text-white text-decoration-none small"><i class="fas fa-book"></i> 講義資料</a>
+                                <a href="assets/課堂講義.pdf" target="_blank" class="btn btn-sm btn-outline-light w-100" style="border-color: var(--accent-purple); color: var(--accent-purple);">
+                                    <i class="fas fa-book"></i> 更多內容
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -384,8 +440,8 @@
 
         <section id="pygmt">
             <div class="container">
-                <h2 class="section-title">PyGMT 視覺化專題</h2>
-                <p class="text-secondary mb-5">從入門教學到進階板塊繪圖，展現 Python 在地球科學中繪圖的強大能力。</p>
+                <h2 class="section-title">PyGMT 應用</h2>
+                <p class="text-secondary mb-5">從入門教學到進階板塊繪圖，展現 Python 在地學繪圖的強大能力。</p>
 
                 <div class="row g-5">
                     <div class="col-lg-5">
@@ -444,6 +500,8 @@
                                     <strong>核心摘要：</strong><br>
                                     介紹利用地震波速度差異反推地下介質分佈的技術，原理類似醫學 CT 掃描。應用於板塊構造研究與石油探勘。
                                 </p>
+                                </ul>
+                                <a href="assets/作業6演講心得報告.pdf" target="_blank" class="btn btn-sm btn-outline-light w-100 mt-2">個人觀後心得PDF</a>
                             </div>
                         </div>
                     </div>
@@ -458,14 +516,18 @@
                                     <strong>核心摘要：</strong><br>
                                     比較日本阿蘇火山與台灣大屯山。展示無人機 (UAV) 在火山口氣體採樣與熱影像拍攝的應用。
                                 </p>
+                                </ul>
+                                <a href="assets/作業12演講心得報告.pdf" target="_blank" class="btn btn-sm btn-outline-light w-100 mt-2">個人觀後心得PDF</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="tech-card">
-                            <div class="video-wrapper">
+                            <div class="video-wrapper mb-2">
                                 <iframe src="https://www.youtube.com/embed/dk9kC04-y2o" allowfullscreen></iframe>
-                                <iframe src="https://youtu.be/n5KBX0H5P50" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/n5KBX0H5P50" allowfullscreen></iframe>
                             </div>
                             <div class="p-4">
                                 <h5 class="text-white" style="color: var(--accent-purple) !important;">廖勿渝 博士：AI 地震學</h5>
@@ -473,6 +535,8 @@
                                     <strong>核心摘要：</strong><br>
                                     探討 Deep Learning 在地震監測的應用。AI 模型能自動「斷句」，精準挑選 P/S 波，大幅提升微震偵測能力。
                                 </p>
+                                </ul>
+                                <a href="assets/作業13演講心得報告.pdf" target="_blank" class="btn btn-sm btn-outline-light w-100 mt-2">個人觀後心得PDF</a>
                             </div>
                         </div>
                     </div>
@@ -482,12 +546,12 @@
 
         <section id="reflection">
             <div class="container">
-                <h2 class="section-title">策展人結語</h2>
+                <h2 class="section-title">學期總結</h2>
                 <div class="reflection-box">
                     <i class="fas fa-quote-left"></i>
                     <p class="fs-5 lh-lg text-light mb-0" style="position: relative; z-index: 1;">
-                        「這門課對我來說，是從『閱讀文獻』到『解讀數據』的轉變。<br><br>
-                        作為史地系學生，我過去習慣從歷史文本或地圖上理解世界。但這學期，我學會了用 Python 處理波形、用 PyGMT 繪製地圖、用 AI 輔助分析。
+                        這門課對我來說，是從「閱讀文獻」到「解讀數據」的轉變。<br><br>
+                        作為史地系學生，我過去習慣從歷史文本或地圖上理解世界。而這學期，我學會了用 Python 處理波形、用 PyGMT 繪製地圖、用 AI 輔助分析。
                         我嘗試將人文的時空觀點，與地球物理的探勘技術結合。<br><br>
                         這個網頁不只是作業的堆疊，而是一份關於<strong>如何用現代科技重新認識地球</strong>的紀錄。」
                     </p>
@@ -500,10 +564,31 @@
 
         <footer class="text-center text-secondary small py-5" style="border-top: 1px solid #334155;">
             <div class="container">
-                <p class="mb-1">114 學年度第一學期 地球物理通論期末成果展</p>
+                <p class="mb-1">114 學年度第一學期 地球物理通論期末報告</p>
                 <p class="mb-0 tech-font">Designed by U11104022 | Built with Bootstrap 5 & GitHub Pages</p>
             </div>
         </footer>
+    </div>
+
+    <div class="modal fade" id="modalHW4" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content bg-dark border-secondary">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-white">HW4: 折射震測公式推導</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <img src="assets/作業4-1.jpg" class="img-fluid rounded border border-secondary" alt="推導過程 1">
+                        </div>
+                        <div class="col-md-6">
+                            <img src="assets/作業4-2.jpg" class="img-fluid rounded border border-secondary" alt="推導過程 2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
