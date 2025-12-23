@@ -1,61 +1,53 @@
-# 地球物理通論期末成果展 (Geophysics Final Project)
+# 114-1 地球物理通論 期末專題報告 (Final Project)
 
-**114 學年度第一學期 | 指導教授：陳達毅** **學生：史地四 U11104022 張以蓁**
-
-## 📖 專案簡介
-本 Repository 為「地球物理通論」課程的期末成果展示網站原始碼。  
-此專案旨在整合本學期所學之地球物理理論、實作測勘、Python 資料處理以及 AI 工具應用，並透過互動式網頁的形式呈現個人的學習歷程與成果。
-
-🔗 **線上成果展網頁**：[https://z72123.github.io/U11104022-Final-Project-Report/](https://z72123.github.io/U11104022-Final-Project-Report/)
+**學生：** 史地四 U11104022 張以蓁  
+**指導老師：** 陳達毅 教授
 
 ---
 
-## 📂 內容架構
-
-本成果展網頁主要劃分為四大區塊，收錄了從作業 1 至作業 13 的完整學習成果：
-
-### 1. 🗣️ 大師演講：聆聽地球的聲音
-整理並摘要地球物理領域專家的演講內容，包含影片紀錄與個人心得報告 (PDF)。
-* **甘禮有 博士**：地震層析成像 (作業 6)
-* **黃有志 博士**：板塊活動下的火山與地震 (作業 12)
-* **廖勿渝 博士**：AI 與深度學習在地震監測 (作業 13)
-
-### 2. 📝 理論推導與實驗測勘
-展示地球物理探勘的基礎理論與校園實地操作報告。
-* **作業 4**：折射震測公式推導 (Crossover Distance 與走時公式)
-* **作業 5**：校園震測實驗報告 (利用折射震測法探測地下結構)
-
-### 3. 🛠️ 數位工具與 AI 基礎建設
-紀錄如何建立雲端開發環境、學習歷程與個人化 AI 助手的過程。
-* **作業 1**：HuggingFace 平台初探與 Space 建立
-* **作業 2**：Google Blogger 學習歷程部落格
-* **作業 3**：GitHub Codespaces 環境建置與 ObsPy 地震波處理
-* **作業 9**：使用 Dify 建立專屬地球物理 AI 知識庫助手
-
-### 4. 📊 地球物理資料視覺化與分析
-利用 Python (PyGMT, Gradio) 將抽象數據轉化為直觀的地圖與互動模型。
-* **作業 7**：重力測勘資料處理 (Github Pages)
-* **作業 8**：Free Air Anomaly 重力異常互動程式 (Gradio/HuggingFace)
-* **作業 10**：板塊邊界、地震與火山分佈繪圖 (PyGMT)
-* **作業 11**：PyGMT 繪圖教學網站製作
+## 🔗 成果展示連結 (Deployment)
+* **互動式成果網頁 (GitHub Pages):** [https://z72123.github.io/U11104022-Final-Project-Report/](https://z72123.github.io/U11104022-Final-Project-Report/)
+* **AI 互動助手 (Dify):** [https://udify.app/workflow/lgcgpFF9BWLuE9fL](https://udify.app/workflow/lgcgpFF9BWLuE9fL)
+* **重力異常分析 App (Hugging Face):** [https://huggingface.co/spaces/Z72123/freeair-gtavity](https://huggingface.co/spaces/Z72123/freeair-gtavity)
 
 ---
 
-## 💻 網頁技術 (Tech Stack)
+## 📚 專案架構與內容整合 (Content Integration)
 
-本靜態網頁使用以下技術構建：
-* **HTML5 / CSS3**：基礎網頁結構與樣式。
-* **Bootstrap 5**：響應式排版 (Responsive Design) 與 UI 元件 (Cards, Modals, Navbar)。
-* **CSS Animations**：首頁 3D 旋轉地球特效與視覺優化。
-* **GitHub Pages**：靜態網頁託管服務。
+本專案旨在透過互動式網頁，完整呈現本學期在地球物理領域的學習歷程。作為史地系學生，我嘗試將地理空間的思維與地球物理的數據分析結合，內容涵蓋四大面向：
 
-## 📂 檔案目錄結構
+### 1. 🛠️ 數位工具基礎 (Digital Infrastructure)
+* **目的：** 建立雲端開發與數據獲取能力。
+* **成果：** * 熟練使用 **GitHub Codespaces** 進行 Python 開發。
+  * 利用 **ObsPy** 串接 IRIS 資料庫，獲取並處理地震波形數據 (HW3)。
+
+### 2. 📝 理論與實地測勘 (Theory & Fieldwork)
+* **目的：** 驗證地球物理理論。
+* **成果：**
+  * **公式推導：** 詳解折射震測中的 Crossover Distance 與走時公式 (HW4)。
+  * **校園實驗：** 實地操作 24 通道震測儀，成功推算出校園地下第一層波速 (400 m/s) 與厚度 (4.21 m) (HW5)。
+
+### 3. 🗺️ 資料視覺化 (Data Visualization)
+* **目的：** 將抽象數據轉化為直觀的地質資訊。
+* **成果：**
+  * 使用 **PyGMT** 繪製包含地形、火山與地震分佈的板塊邊界圖 (HW10)。
+  * 建立 PyGMT 教學網頁，分享繪圖程式碼與經驗 (HW11)。
+
+### 4. 🤖 AI 與深度學習應用 (AI Integration)
+* **目的：** 探索新科技在地球科學的應用。
+* **成果：**
+  * **RAG 應用：** 建立 Dify 知識庫助手，輔助地球物理概念查詢 (HW9)。
+  * **互動展示：** 部署 Gradio App，動態展示重力異常修正原理 (HW8)。
+
+---
+
+## 📂 檔案目錄說明 (Structure)
 
 ```text
 .
-├── index.html          # 網站主頁面 (Entry Point)
-├── README.md           # 專案說明文件
-└── assets/             # 資源資料夾 (存放 PDF 報告、圖片等)
+├── index.html          # 網站主程式 (Entry Point)
+├── README.md           # 專案說明與部署連結 (本文件)
+└── assets/             # 靜態資源 (報告與圖片)
     ├── 作業3說明.pdf
     ├── 作業4-1.jpg
     ├── 作業4-2.jpg

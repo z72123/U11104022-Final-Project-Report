@@ -12,8 +12,10 @@
     <style>
         :root {
             --primary-color: #2c3e50;
+            --secondary-color: #34495e;
             --accent-color: #e67e22;
-            --light-bg: #f8f9fa;
+            --light-bg: #f4f6f7;
+            --card-hover-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
 
         body {
@@ -21,24 +23,35 @@
             background-color: var(--light-bg);
             color: #333;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        /* Navbar Styling */
+        /* Navbar */
         .navbar {
             background: rgba(44, 62, 80, 0.95);
             backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+            padding: 1rem 0;
         }
         .navbar-brand {
             font-weight: 700;
             letter-spacing: 1px;
+            font-size: 1.5rem;
+        }
+        .nav-link {
+            font-weight: 500;
+            margin-left: 15px;
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: var(--accent-color) !important;
         }
 
         /* Hero Section with 3D Earth */
         .hero {
             position: relative;
             height: 100vh;
-            background: #000 url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center center no-repeat;
+            background: #000 url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center center no-repeat;
             background-size: cover;
             display: flex;
             align-items: center;
@@ -46,159 +59,157 @@
             overflow: hidden;
             color: white;
         }
-
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
             z-index: 1;
         }
-
         .hero-content {
             position: relative;
             z-index: 3;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+            max-width: 800px;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+        .hero .lead {
+            font-size: 1.6rem;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            color: #ddd;
         }
 
-        /* 3D Earth Animation CSS */
+        /* 3D Earth Animation */
         .earth-container {
             position: absolute;
-            top: 50%;
-            left: 50%;
+            top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            width: 450px;
-            height: 450px;
+            width: 500px; height: 500px;
             z-index: 2;
-            opacity: 0.8;
-            pointer-events: none; /* Let clicks pass through */
+            opacity: 0.9;
+            pointer-events: none;
         }
-
         .earth {
-            width: 100%;
-            height: 100%;
+            width: 100%; height: 100%;
             border-radius: 50%;
             background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Earth_map_1024x512.jpg/1024px-Earth_map_1024x512.jpg');
             background-size: 200% 100%;
             box-shadow: inset 0 0 50px rgba(0,0,0,0.9), 0 0 20px rgba(100, 200, 255, 0.2);
-            animation: rotateEarth 30s linear infinite;
-            position: relative;
+            animation: rotateEarth 40s linear infinite;
         }
-
-        .earth::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            box-shadow: 0 0 30px rgba(78, 169, 255, 0.4);
-        }
-
         @keyframes rotateEarth {
             0% { background-position: 0 0; }
             100% { background-position: -200% 0; }
         }
-
         @media (max-width: 768px) {
-            .earth-container {
-                width: 300px;
-                height: 300px;
-            }
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        .hero .lead {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            font-weight: 300;
+            .earth-container { width: 300px; height: 300px; }
+            .hero h1 { font-size: 2.5rem; }
         }
 
         /* Section Styling */
-        section {
-            padding: 80px 0;
-        }
+        section { padding: 100px 0; }
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
-            position: relative;
-            color: var(--primary-color);
+            margin-bottom: 70px;
             font-weight: 700;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
         }
         .section-title::after {
             content: '';
             display: block;
-            width: 60px;
-            height: 4px;
+            width: 80px; height: 5px;
             background: var(--accent-color);
-            margin: 15px auto 0;
-            border-radius: 2px;
+            margin: 20px auto 0;
+            border-radius: 5px;
         }
+
+        /* Roadmap (Integration Logic) */
+        .roadmap-step {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 40px;
+            border-left: 3px solid var(--accent-color);
+        }
+        .roadmap-step::before {
+            content: '';
+            position: absolute;
+            left: -11px; top: 0;
+            width: 20px; height: 20px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            border: 3px solid white;
+        }
+        .roadmap-title { font-weight: 700; color: var(--primary-color); font-size: 1.2rem; }
+        .roadmap-desc { color: #666; font-size: 0.95rem; }
 
         /* Cards */
         .card {
             border: none;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            overflow: hidden;
-            height: 100%;
+            border-radius: 12px;
             background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            overflow: hidden;
         }
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: var(--card-hover-shadow);
         }
         .card-header {
-            background: transparent;
-            border-bottom: none;
-            padding: 1.5rem 1.5rem 0.5rem;
+            background: white;
+            border-bottom: 1px solid #f0f0f0;
             font-weight: 700;
             color: var(--primary-color);
-            font-size: 1.25rem;
+            padding: 1.25rem;
         }
-        .card-body {
-            padding: 1.5rem;
+        .card-body { padding: 1.5rem; }
+        
+        /* Interactive Elements */
+        .btn-custom {
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50px;
+            padding: 10px 30px;
+            transition: all 0.3s;
         }
-
-        /* Interactive Embeds */
-        .pdf-container {
-            width: 100%;
-            height: 500px;
-            border: 1px solid #ddd;
+        .btn-custom:hover {
+            background-color: #d35400;
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .pdf-container, .video-container {
             border-radius: 8px;
-            margin-top: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background: #000;
         }
+        .pdf-container { width: 100%; height: 500px; }
         .video-container {
             position: relative;
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         .video-container iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
         }
 
-        /* Footer */
         footer {
             background: var(--primary-color);
             color: white;
-            padding: 40px 0;
+            padding: 50px 0;
             text-align: center;
         }
     </style>
@@ -214,76 +225,82 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#intro">學習路徑</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#theory">理論與實作</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#visualization">數位工具與AI</a></li>
                     <li class="nav-item"><a class="nav-link" href="#masters">大師演講</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#theory">理論實作</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#digital-tools">數位工具</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#visualization">資料視覺化</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <header class="hero" id="about">
-        <div class="earth-container">
-            <div class="earth"></div>
-        </div>
-        
-        <div class="container text-center hero-content">
+    <header class="hero">
+        <div class="earth-container"><div class="earth"></div></div>
+        <div class="container hero-content text-center">
             <h1>探索地球的脈動</h1>
-            <p class="lead">114-1 地球物理通論期末專題報告</p>
-            <p class="mb-4 text-light opacity-75">史地四 U11104022 張以蓁</p>
-            <div class="d-flex justify-content-center gap-3">
-                <a href="#masters" class="btn btn-warning btn-lg px-5 rounded-pill shadow-lg">開始探索 <i class="fas fa-arrow-down ms-2"></i></a>
-            </div>
+            <p class="lead">結合史地視野與地球物理科技的跨領域探索之旅</p>
+            <p class="mb-5 text-light opacity-75">113-1 期末專題報告 | 史地四 U11104022 張以蓁</p>
+            <a href="#intro" class="btn btn-custom btn-lg shadow-lg">開始探索 <i class="fas fa-arrow-down ms-2"></i></a>
         </div>
     </header>
 
-    <section id="masters" class="bg-white">
+    <section id="intro" class="bg-white">
         <div class="container">
-            <h2 class="section-title">大師演講：聆聽地球的聲音</h2>
-            <p class="text-center text-muted mb-5">透過專家的視角，深入了解板塊、火山與 AI 地震監測的前沿知識。</p>
+            <h2 class="section-title">學習旅程整合</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <div class="roadmap-step">
+                        <div class="roadmap-title">Stage 1: 建構基礎 (Foundation)</div>
+                        <div class="roadmap-desc">熟悉 HuggingFace、GitHub Codespaces 與 ObsPy 環境架設 (HW1, 2, 3)。</div>
+                    </div>
+                    <div class="roadmap-step">
+                        <div class="roadmap-title">Stage 2: 理論驗證 (Verification)</div>
+                        <div class="roadmap-desc">從折射震測公式推導到校園實地實驗，連結理論與現場數據 (HW4, 5)。</div>
+                    </div>
+                    <div class="roadmap-step">
+                        <div class="roadmap-title">Stage 3: 數據視覺化 (Visualization)</div>
+                        <div class="roadmap-desc">運用 PyGMT 繪製板塊地圖，並進行重力異常修正 (HW7, 10, 11)。</div>
+                    </div>
+                    <div class="roadmap-step">
+                        <div class="roadmap-title">Stage 4: AI 應用 (Innovation)</div>
+                        <div class="roadmap-desc">整合 RAG 技術建立個人 AI 助手，並探討深度學習在地震監測的應用 (HW9, 13)。</div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="p-4 bg-light rounded shadow-sm">
+                        <h5><i class="fas fa-quote-left text-warning me-2"></i>跨領域的反思</h5>
+                        <p class="text-muted">作為史地系的學生，我過去習慣從文獻與地圖看世界。這門課讓我學會了用「物理數據」和「程式碼」重新解讀地球。從作業 1 的 AI 初探到作業 5 的實地敲擊震測，再到最後能用 PyGMT 畫出專業地圖，這不僅是技術的累積，更是視角的轉換。</p>
+                        <p class="text-muted mb-0">本網頁將依序展示這段從 **數據獲取** 到 **智慧分析** 的完整歷程。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section id="theory" style="background-color: #ecf0f1;">
+        <div class="container">
+            <h2 class="section-title">理論推導與實驗測勘</h2>
             <div class="row g-4">
-                <div class="col-lg-4">
+                <div class="col-md-6">
                     <div class="card h-100">
-                        <div class="card-header"><i class="fas fa-x-ray me-2"></i>甘禮有 博士</div>
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">地震層析成像：地球的 CT 掃描</h5>
-                            <p class="card-text text-muted">如何不挖開地球就能看見內部？從醫學 CT 到石油探勘的技術奧秘。</p>
-                            <div class="mt-auto">
-                                <button class="btn btn-outline-primary w-100 mb-2" data-bs-toggle="modal" data-bs-target="#modalTalk6">
-                                    <i class="fas fa-play-circle me-1"></i> 觀看影片與心得
-                                </button>
+                        <div class="card-header"><i class="fas fa-calculator me-2"></i>作業 4: 折射震測公式推導</div>
+                        <div class="card-body">
+                            <p class="card-text">深入理解司乃耳定律在地下介質中的應用，推導 Crossover Distance (Xcr) 與走時公式。</p>
+                            <div class="row g-2">
+                                <div class="col-6"><img src="assets/作業4-1.jpg" class="img-fluid rounded border" data-bs-toggle="modal" data-bs-target="#imgModal1" style="cursor: pointer;"></div>
+                                <div class="col-6"><img src="assets/作業4-2.jpg" class="img-fluid rounded border" data-bs-toggle="modal" data-bs-target="#imgModal2" style="cursor: pointer;"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-4">
-                    <div class="card h-100">
-                        <div class="card-header"><i class="fas fa-fire me-2"></i>黃有志 博士</div>
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">板塊活動下的火山與地震</h5>
-                            <p class="card-text text-muted">從熊本大地震到大屯火山群。台灣與日本的構造比較，以及無人機在火山監測的應用。</p>
-                            <div class="mt-auto">
-                                <button class="btn btn-outline-primary w-100 mb-2" data-bs-toggle="modal" data-bs-target="#modalTalk12">
-                                    <i class="fas fa-play-circle me-1"></i> 觀看影片與心得
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4">
-                    <div class="card h-100">
-                        <div class="card-header"><i class="fas fa-robot me-2"></i>廖勿渝 博士</div>
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">AI 與深度學習在地震監測</h5>
-                            <p class="card-text text-muted">用 AI 挑揀地震波 (Phase Picking)！介紹 ARRU、RED-PAN 與 RockNet 如何改變地震學。</p>
-                            <div class="mt-auto">
-                                <button class="btn btn-outline-primary w-100 mb-2" data-bs-toggle="modal" data-bs-target="#modalTalk13">
-                                    <i class="fas fa-play-circle me-1"></i> 觀看影片與心得
-                                </button>
+                <div class="col-md-6">
+                    <div class="card h-100 border-success border-2">
+                        <div class="card-header bg-success text-white"><i class="fas fa-hammer me-2"></i>作業 5: 校園震測實驗</div>
+                        <div class="card-body">
+                            <p class="card-text">利用 24 個 Geophone 與 NZ 24 紀錄儀，在圖書館後方進行淺層探測。計算出表層波速約 400 m/s，第一層厚度約 4.21 公尺。</p>
+                            <a href="assets/第九組震測實驗報告.pdf" target="_blank" class="btn btn-outline-success w-100 mb-3"><i class="fas fa-file-pdf me-2"></i>查看完整實驗報告</a>
+                            <div class="ratio ratio-16x9">
+                                <iframe src="assets/第九組震測實驗報告.pdf"></iframe>
                             </div>
                         </div>
                     </div>
@@ -292,28 +309,138 @@
         </div>
     </section>
 
-    <div class="modal fade" id="modalTalk6" tabindex="-1" aria-hidden="true">
+    <section id="visualization" class="bg-white">
+        <div class="container">
+            <h2 class="section-title">數位工具與 AI 視覺化</h2>
+            <p class="text-center text-muted mb-5">整合 GitHub Ecosystem, PyGMT 與 Hugging Face 的創新應用展示。</p>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary"><i class="fab fa-python me-2"></i>作業 3: ObsPy 波形處理</h5>
+                            <p class="small text-muted">GitHub Codespaces 雲端實作</p>
+                            <p class="card-text">透過 FDSN 連線 IRIS 資料庫，抓取台灣測站數據並進行去均值與濾波處理。</p>
+                            <div class="d-grid gap-2">
+                                <a href="assets/作業3說明.pdf" class="btn btn-sm btn-outline-secondary" target="_blank">作業說明 PDF</a>
+                                <a href="https://github.com/z72123/geophysics-class-2025" class="btn btn-sm btn-dark" target="_blank"><i class="fab fa-github me-1"></i> 檢視程式碼</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-warning">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning"><i class="fas fa-map-marked-alt me-2"></i>作業 10: PyGMT 板塊繪圖</h5>
+                            <p class="small text-muted">專業地質圖繪製</p>
+                            <p class="card-text">整合地形、火山與歷史地震資料。這項作業展示了如何將抽象數據轉化為直觀的地圖資訊。</p>
+                            <a href="https://github.com/z72123/HW10_U11104022/blob/main/pygmt_plot_plate_boundary.ipynb" class="btn btn-warning w-100 text-dark" target="_blank">查看 Jupyter Notebook</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-info">
+                        <div class="card-body">
+                            <h5 class="card-title text-info"><i class="fas fa-robot me-2"></i>作業 9: Dify AI 助手</h5>
+                            <p class="small text-muted">RAG 知識庫應用</p>
+                            <p class="card-text">建立專屬的地球物理知識庫助手。這是將課堂知識結構化並透過 AI 進行檢索的創新嘗試。</p>
+                            <a href="https://udify.app/workflow/lgcgpFF9BWLuE9fL" class="btn btn-info text-white w-100" target="_blank">試用 AI 助手</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-sliders-h me-2"></i>作業 8: 重力異常互動程式</h5>
+                            <p class="card-text">使用 <strong>Gradio</strong> 框架建置。使用者可調整參數即時觀察 Free Air Anomaly 的變化，實現互動式教學。</p>
+                            <div class="ratio ratio-16x9 border rounded">
+                                <iframe src="https://z72123-freeair-gtavity.hf.space"></iframe>
+                            </div>
+                            <a href="https://huggingface.co/spaces/Z72123/freeair-gtavity" class="btn btn-outline-dark mt-2 w-100" target="_blank">前往 HuggingFace Space</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">作業 7: 重力測勘修正</h5>
+                                    <p class="small mb-2">包含自由空間修正與布蓋修正的實作。</p>
+                                    <a href="https://z72123.github.io/HW7_U11104022/" class="btn btn-sm btn-outline-secondary w-100" target="_blank">瀏覽 Github Pages</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="card bg-warning bg-opacity-10">
+                                <div class="card-body">
+                                    <h5 class="card-title">作業 11: PyGMT 教學網頁</h5>
+                                    <p class="small mb-2">製作教學文件，幫助他人學習 PyGMT。</p>
+                                    <a href="https://z72123.github.io/HW11_U11104022-learing-PyGMT/" class="btn btn-sm btn-warning w-100" target="_blank">瀏覽教學網站</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="masters" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">大師演講心得</h2>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header bg-dark text-white">甘禮有 博士</div>
+                        <div class="card-body d-flex flex-column">
+                            <h5>地震層析成像</h5>
+                            <p class="text-muted small">地球的 CT 掃描技術</p>
+                            <button class="btn btn-outline-dark mt-auto" data-bs-toggle="modal" data-bs-target="#modalTalk6">查看心得與影片</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header bg-dark text-white">黃有志 博士</div>
+                        <div class="card-body d-flex flex-column">
+                            <h5>火山與地震</h5>
+                            <p class="text-muted small">從熊本到大屯山的觀測</p>
+                            <button class="btn btn-outline-dark mt-auto" data-bs-toggle="modal" data-bs-target="#modalTalk12">查看心得與影片</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header bg-dark text-white">廖勿渝 博士</div>
+                        <div class="card-body d-flex flex-column">
+                            <h5>AI 地震學</h5>
+                            <p class="text-muted small">深度學習在監測中的應用</p>
+                            <button class="btn btn-outline-dark mt-auto" data-bs-toggle="modal" data-bs-target="#modalTalk13">查看心得與影片</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="modalTalk6" tabindex="-1">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">甘禮有博士：地震層析成像 (作業 6)</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-lg-6">
-                            <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/0wqya35f8HY" allowfullscreen></iframe>
-                            </div>
-                            <h5>演講精華：</h5>
-                            <ul>
-                                <li>**核心概念**：利用地震波速度差異，反推地下介質分佈，如同醫院的電腦斷層。</li>
-                                <li>**應用**：不僅用於學術研究，更是石油探勘尋找油氣儲存構造的關鍵技術。</li>
-                                <li>**心得**：即使非地質背景，也能理解科學家如何透過模型「看見」地球內部。</li>
-                            </ul>
+                        <div class="col-lg-6 mb-3">
+                            <div class="video-container"><iframe src="https://www.youtube.com/embed/0wqya35f8HY"></iframe></div>
                         </div>
                         <div class="col-lg-6">
-                            <h6>完整心得報告 (PDF 預覽):</h6>
                             <iframe src="assets/作業6演講心得報告.pdf" class="pdf-container"></iframe>
                         </div>
                     </div>
@@ -321,29 +448,19 @@
             </div>
         </div>
     </div>
-
-    <div class="modal fade" id="modalTalk12" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="modalTalk12" tabindex="-1">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">黃有志博士：火山與地震 (作業 12)</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-lg-6">
-                            <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/1BnPqAMARlE" allowfullscreen></iframe>
-                            </div>
-                            <h5>演講精華：</h5>
-                            <ul>
-                                <li>**經驗談**：分享 2016 熊本地震與阿蘇火山觀測站的親身經歷。</li>
-                                <li>**台灣視角**：大屯火山群是活火山，需注意地表噴氣增加與水蒸氣噴發。</li>
-                                <li>**跨域結合**：展示無人機 (UAV) 在危險火山口採樣與攝影的潛力。</li>
-                            </ul>
+                        <div class="col-lg-6 mb-3">
+                            <div class="video-container"><iframe src="https://www.youtube.com/embed/1BnPqAMARlE"></iframe></div>
                         </div>
                         <div class="col-lg-6">
-                            <h6>完整心得報告 (PDF 預覽):</h6>
                             <iframe src="assets/作業12演講心得報告.pdf" class="pdf-container"></iframe>
                         </div>
                     </div>
@@ -351,33 +468,19 @@
             </div>
         </div>
     </div>
-
-    <div class="modal fade" id="modalTalk13" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="modalTalk13" tabindex="-1">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">廖勿渝博士：AI 地震學 (作業 13)</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-lg-6">
-                            <p class="text-muted">本場次包含兩段影片記錄：</p>
-                            <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/dk9kC04-y2o" allowfullscreen></iframe>
-                            </div>
-                            <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/n5KBX0H5P50" allowfullscreen></iframe>
-                            </div>
+                        <div class="col-lg-6 mb-3">
+                            <div class="video-container mb-2"><iframe src="https://www.youtube.com/embed/dk9kC04-y2o"></iframe></div>
                         </div>
                         <div class="col-lg-6">
-                            <h5>演講精華：</h5>
-                            <ul>
-                                <li>**ARRU 模型**：像閱讀文章斷句一樣，精準抓出 P 波與 S 波的到達時間。</li>
-                                <li>**RED-PAN**：解決地震波疊加問題，為即時預警爭取黃金時間。</li>
-                                <li>**RockNet**：利用多工學習排除落石與工程雜訊，純化地震目錄。</li>
-                            </ul>
-                            <h6>完整心得報告 (PDF 預覽):</h6>
                             <iframe src="assets/作業13演講心得報告.pdf" class="pdf-container"></iframe>
                         </div>
                     </div>
@@ -386,232 +489,23 @@
         </div>
     </div>
 
-    <section id="theory" style="background-color: #ecf0f1;">
-        <div class="container">
-            <h2 class="section-title">理論推導與實驗測勘</h2>
-            
-            <div class="row mt-5">
-                <div class="col-md-12 mb-5">
-                    <div class="card p-4">
-                        <h3 class="mb-4"><span class="badge bg-primary">作業 4</span> 折射震測公式推導</h3>
-                        <p>理解震波如何在不同地層介面發生折射，並推導 Crossover Distance (Xcr) 與走時公式。</p>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <div class="card">
-                                    <img src="assets/作業4-1.jpg" class="card-img-top" alt="折射公式推導 1" data-bs-toggle="modal" data-bs-target="#imgModal1" style="cursor: pointer;">
-                                    <div class="card-footer text-muted text-center small">點擊放大檢視</div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="card">
-                                    <img src="assets/作業4-2.jpg" class="card-img-top" alt="折射公式推導 2" data-bs-toggle="modal" data-bs-target="#imgModal2" style="cursor: pointer;">
-                                    <div class="card-footer text-muted text-center small">點擊放大檢視</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="card p-4">
-                        <h3 class="mb-4"><span class="badge bg-success">作業 5</span> 校園震測實驗報告</h3>
-                        <div class="row">
-                            <div class="col-lg-5">
-                                <h5>實驗目的</h5>
-                                <p>利用折射震測法，探測學校圖書館後方的淺層地下結構。</p>
-                                <h5>實驗方法</h5>
-                                <ul>
-                                    <li>**震源**：鐵鎚敲擊鐵板。</li>
-                                    <li>**儀器**：24 個 Geophone (檢波器) 與 NZ 24 震測紀錄儀。</li>
-                                    <li>**分析**：透過 T-X 圖計算第一層與第二層波速及地層厚度。</li>
-                                </ul>
-                                <h5>結果摘要</h5>
-                                <ul>
-                                    <li>V1 (表層波速): ~400 m/s</li>
-                                    <li>V2 (下層波速): ~1500 m/s</li>
-                                    <li>推算第一層厚度: 約 4.21 公尺</li>
-                                </ul>
-                                <a href="assets/第九組震測實驗報告.pdf" target="_blank" class="btn btn-outline-success mt-3">下載完整 PDF</a>
-                            </div>
-                            <div class="col-lg-7">
-                                <div class="ratio ratio-4x3" style="min-height: 500px;">
-                                    <iframe src="assets/第九組震測實驗報告.pdf" title="震測實驗報告" allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <div class="modal fade" id="imgModal1" tabindex="-1"><div class="modal-dialog modal-lg"><div class="modal-content"><img src="assets/作業4-1.jpg" class="img-fluid"></div></div></div>
     <div class="modal fade" id="imgModal2" tabindex="-1"><div class="modal-dialog modal-lg"><div class="modal-content"><img src="assets/作業4-2.jpg" class="img-fluid"></div></div></div>
 
-    <section id="digital-tools" class="bg-white">
-        <div class="container">
-            <h2 class="section-title">數位工具與 AI 基礎建設</h2>
-            <p class="text-center text-muted mb-5">工欲善其事，必先利其器。這四項作業建構了從雲端環境架設、資料收集、學習歷程記錄到個人 AI 助理的完整基礎。</p>
-            
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="card h-100 border-0 shadow-sm" style="background: linear-gradient(to bottom right, #ffffff, #f8f9fa);">
-                        <div class="card-body d-flex flex-column">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="text-warning me-3"><i class="fas fa-cube fa-2x"></i></div>
-                                <h5 class="card-title mb-0">作業 1: HuggingFace 初探</h5>
-                            </div>
-                            <p class="card-text text-muted">**目的：熟悉全球最大的 AI 開源社區 HuggingFace。**</p>
-                            <p class="card-text">建立個人的 Space，並初步嘗試部署簡單的 AI 模型，為後續的互動程式打下基礎。這是我踏入 AI 應用開發的第一步。</p>
-                            <a href="https://huggingface.co/spaces/Z72123/Intro-to-Geophysics" class="btn btn-outline-dark mt-auto w-100" target="_blank">View Space</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="card h-100 border-0 shadow-sm" style="background: linear-gradient(to bottom right, #ffffff, #f8f9fa);">
-                        <div class="card-body d-flex flex-column">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="text-warning me-3"><i class="fab fa-blogger fa-2x"></i></div>
-                                <h5 class="card-title mb-0">作業 2: Blogger 學習歷程</h5>
-                            </div>
-                            <p class="card-text text-muted">**目的：建立持續性的學習反思機制。**</p>
-                            <p class="card-text">利用 Google Blogger 紀錄每週的課程重點與實作心得，培養將技術知識轉化為文字輸出的能力，累積屬於自己的知識庫。</p>
-                            <a href="https://geophysics-overview.blogspot.com/2025/09/114-1_16.html" class="btn btn-outline-dark mt-auto w-100" target="_blank">View Blog</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="card h-100 border-0 shadow-sm" style="background: linear-gradient(to bottom right, #ffffff, #f8f9fa);">
-                        <div class="card-body d-flex flex-column">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="text-primary me-3"><i class="fab fa-python fa-2x"></i></div>
-                                <h5 class="card-title mb-0">作業 3: Codespaces 與 ObsPy</h5>
-                            </div>
-                            <p class="card-text text-muted">**目的：熟悉雲端開發環境與地震波形處理。**</p>
-                            <ul class="list-unstyled small mb-3">
-                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>在 Codespaces 雲端環境撰寫與執行 Python。</li>
-                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>透過 FDSN 介面連線 IRIS 資料庫抓取資料。</li>
-                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>使用 ObsPy 進行波形去均值、濾波與繪圖。</li>
-                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>將處理後的波形輸出保存為圖檔。</li>
-                            </ul>
-                            <div class="mt-auto d-flex gap-2">
-                                <a href="assets/作業3說明.pdf" class="btn btn-outline-primary w-50" target="_blank">作業說明</a>
-                                <a href="https://github.com/z72123/geophysics-class-2025" class="btn btn-outline-dark w-50" target="_blank">程式碼</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="card h-100 border-0 shadow-sm" style="background: linear-gradient(to bottom right, #ffffff, #f8f9fa);">
-                        <div class="card-body d-flex flex-column">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="text-warning me-3"><i class="fas fa-robot fa-2x"></i></div>
-                                <h5 class="card-title mb-0">作業 9: Dify 個人 AI 助手</h5>
-                            </div>
-                            <p class="card-text text-muted">**目的：利用 RAG 技術打造專屬知識庫。**</p>
-                            <p class="card-text">使用 Dify 平台，結合課堂講義與筆記，訓練一個能回答地球物理相關問題的 AI 聊天機器人，實現智慧化的知識檢索。</p>
-                            <a href="https://udify.app/workflow/lgcgpFF9BWLuE9fL" class="btn btn-outline-primary mt-auto w-100" target="_blank">Try AI Bot</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="visualization" style="background-color: #e9ecef;">
-        <div class="container">
-            <h2 class="section-title">地球物理資料視覺化與分析</h2>
-            <p class="text-center text-muted mb-5">利用 Python (PyGMT, Gradio) 將抽象的數據轉化為直觀的地圖與互動模型。</p>
-
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h5 class="card-title mb-0">作業 7: 重力測勘資料處理</h5>
-                                <span class="badge bg-secondary">Github Pages</span>
-                            </div>
-                            <p class="card-text">處理重力測勘數據，進行各種修正（如自由空間修正、布蓋修正），並將結果發布於網頁。</p>
-                            <div class="ratio ratio-16x9 mb-3 border rounded">
-                                <iframe src="https://z72123.github.io/HW7_U11104022/" title="HW7 Preview"></iframe>
-                            </div>
-                            <a href="https://z72123.github.io/HW7_U11104022/" class="btn btn-outline-secondary w-100" target="_blank">前往網頁查看成果</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h5 class="card-title mb-0">作業 10: 板塊邊界繪圖</h5>
-                                <span class="badge bg-warning text-dark">PyGMT</span>
-                            </div>
-                            <p class="card-text">利用 PyGMT 強大的繪圖功能，整合地形、火山位置、歷史地震與板塊邊界資料，繪製出精美的地質地圖。</p>
-                            <div class="bg-light rounded d-flex align-items-center justify-content-center mb-3" style="height: 200px;">
-                                <div class="text-center">
-                                    <i class="fas fa-map-marked-alt fa-3x text-muted mb-2"></i>
-                                    <p class="small text-muted">Jupyter Notebook 實作</p>
-                                </div>
-                            </div>
-                            <a href="https://github.com/z72123/HW10_U11104022/blob/main/pygmt_plot_plate_boundary.ipynb" class="btn btn-outline-warning w-100" target="_blank">查看 Notebook 程式碼</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="card h-100 border-warning">
-                        <div class="card-header bg-warning text-dark">作業 11: PyGMT 教學網站</div>
-                        <div class="card-body">
-                            <p class="card-text">這不僅是作業，更是教學。我製作了一份 PyGMT 的入門教學網頁，並附上完整的程式碼範例，希望能幫助初學者上手。</p>
-                            <div class="ratio ratio-16x9 mb-3 border rounded">
-                                <iframe src="https://z72123.github.io/HW11_U11104022-learing-PyGMT/" title="PyGMT Tutorial"></iframe>
-                            </div>
-                            <a href="https://z72123.github.io/HW11_U11104022-learing-PyGMT/" class="btn btn-warning w-100" target="_blank">開始學習 PyGMT</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="card h-100 border-info">
-                        <div class="card-header bg-info text-white">作業 8: Free Air Anomaly 互動程式</div>
-                        <div class="card-body">
-                            <p class="card-text">將重力異常理論視覺化！使用 Gradio 框架建立互動網頁，使用者調整高度參數，即可即時觀察 Free Air Anomaly 的變化。</p>
-                            <div class="ratio ratio-16x9 mb-3 border rounded">
-                                <iframe src="https://z72123-freeair-gtavity.hf.space" title="Gradio App"></iframe>
-                            </div>
-                            <a href="https://huggingface.co/spaces/Z72123/freeair-gtavity" class="btn btn-info text-white w-100" target="_blank">前往 HuggingFace 操作</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <footer id="portfolio">
+    <footer>
         <div class="container">
             <h3>地球物理通論</h3>
-            <p>114 學年度第一學期 期末專題報告</p>
-            <p>指導教授：陳達毅 | 學生：張以蓁 (U11104022)</p>
-            <hr class="bg-light" style="width: 50%; margin: 20px auto;">
-            <p class="small">Powered by Bootstrap 5 & GitHub Pages</p>
+            <p>113 學年度第一學期 期末專題報告</p>
+            <hr class="bg-light w-50 mx-auto">
+            <p class="small">Powered by Bootstrap 5 & GitHub Pages | Source on <a href="https://github.com/z72123/U11104022-Final-Project-Report" class="text-warning">GitHub</a></p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Navbar color change on scroll
+        // Navbar shadow on scroll
         window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                document.querySelector('.navbar').classList.add('shadow');
-            } else {
-                document.querySelector('.navbar').classList.remove('shadow');
-            }
+            document.querySelector('.navbar').classList.toggle('shadow', window.scrollY > 50);
         });
     </script>
 </body>
