@@ -7,19 +7,24 @@
     <title>地球物理通論期末報告 | U11104022 張以蓁</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg-body: #0f172a;
-            --bg-sidebar: #1e293b;
-            --card-bg: #1e293b;
+            /* [救援修正 1] 背景稍微調亮一點點，避免死黑 */
+            --bg-body: #111827; 
+            --bg-sidebar: #1f2937;
+            --card-bg: #1f2937;
+            
+            /* [救援修正 2] 顏色調得更螢光、更刺眼一點，對抗低亮度螢幕 */
             --accent-cyan: #38bdf8;
             --accent-orange: #fb923c;
-            --accent-purple: #a78bfa;
-            --accent-green: #34d399;
-            --text-primary: #f1f5f9;
-            --text-secondary: #94a3b8;
+            --accent-purple: #c084fc; /* 更亮的紫 */
+            --accent-green: #4ade80; /* 更亮的綠 */
+            
+            --text-primary: #ffffff; /* 純白 */
+            /* [救援修正 3] 這是救命關鍵：次要文字從暗灰改成亮銀色 */
+            --text-secondary: #e2e8f0; 
         }
 
         body {
@@ -28,11 +33,13 @@
             color: var(--text-primary);
             overflow-x: hidden;
             scroll-padding-top: 80px;
+            font-weight: 400; /* [救援修正] 避免使用細體字 */
         }
 
         h1, h2, h3, h4, h5, .brand-font {
             font-family: 'Noto Sans TC', sans-serif;
             font-weight: 700;
+            letter-spacing: 0.5px; /* 增加字距提升可讀性 */
         }
 
         code, .tech-font {
@@ -48,7 +55,7 @@
             width: 260px;
             background-color: var(--bg-sidebar);
             padding: 2rem 1rem;
-            border-right: 1px solid #334155;
+            border-right: 1px solid #4b5563; /* 邊框加亮 */
             overflow-y: auto;
             z-index: 1000;
         }
@@ -59,17 +66,24 @@
         }
 
         .nav-link {
-            color: var(--text-secondary);
+            color: #d1d5db; /* 導覽列文字加亮 */
             padding: 0.8rem 1rem;
             border-radius: 6px;
             transition: all 0.2s;
             display: flex;
             align-items: center;
+            font-weight: 500;
         }
 
         .nav-link:hover, .nav-link.active {
-            color: var(--accent-cyan);
-            background: rgba(56, 189, 248, 0.1);
+            color: #ffffff;
+            background: var(--accent-cyan); /* 直接用亮色背景 */
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        /* 讓 active 狀態的文字變成深色以增加對比 */
+        .nav-link.active {
+            color: #0f172a; 
         }
 
         .nav-link i { width: 24px; text-align: center; margin-right: 10px; }
@@ -82,7 +96,8 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.6), var(--bg-body)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
+            /* [救援修正 4] 降低黑色遮罩濃度 (0.6 -> 0.2)，讓背景圖亮起來 */
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.2), var(--bg-body)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -92,7 +107,8 @@
         /* Cards */
         .tech-card {
             background: var(--card-bg);
-            border: 1px solid #334155;
+            /* [救援修正 5] 加亮邊框顏色，讓卡片輪廓在暗螢幕上浮現 */
+            border: 1px solid #4b5563; 
             border-radius: 12px;
             transition: transform 0.3s, box-shadow 0.3s;
             height: 100%;
@@ -104,11 +120,10 @@
 
         .tech-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.15);
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3); /* 陰影加重 */
             border-color: var(--accent-cyan);
         }
 
-        /* Knowledge Card Specifics */
         .knowledge-card { border-top: 4px solid var(--accent-cyan); }
         .knowledge-card.orange { border-top-color: var(--accent-orange); }
         .knowledge-card.purple { border-top-color: var(--accent-purple); }
@@ -120,6 +135,8 @@
             display: flex; align-items: center; justify-content: center;
             font-size: 1.5rem;
             margin-bottom: 1rem;
+            /* [救援修正] 增加圖示背景亮度 */
+            background-color: rgba(255, 255, 255, 0.1) !important;
         }
 
         /* Roadmap Styling */
@@ -127,32 +144,33 @@
             position: relative;
             padding-left: 40px;
             margin-bottom: 40px;
-            border-left: 2px solid var(--accent-cyan);
+            border-left: 3px solid var(--accent-cyan); /* 線條加粗 */
         }
         .roadmap-step::before {
             content: '';
             position: absolute;
-            left: -9px;
+            left: -10px;
             top: 0;
-            width: 16px;
-            height: 16px;
+            width: 18px; /* 圓點加大 */
+            height: 18px;
             border-radius: 50%;
             background: var(--bg-body);
-            border: 2px solid var(--accent-cyan);
+            border: 3px solid var(--accent-cyan);
         }
         .roadmap-title {
             color: var(--accent-cyan);
             font-family: 'JetBrains Mono';
             font-weight: 700;
             margin-bottom: 0.5rem;
+            font-size: 1.2rem; /* 標題加大 */
         }
 
         /* Buttons */
         .btn-tech {
             background: linear-gradient(45deg, var(--accent-cyan), #0ea5e9);
             color: #0f172a;
-            font-weight: 700;
-            border: none;
+            font-weight: 800; /* 字體加粗 */
+            border: 1px solid #fff; /* 加白邊 */
         }
         .btn-tech:hover {
             background: linear-gradient(45deg, #0ea5e9, var(--accent-cyan));
@@ -160,10 +178,11 @@
         }
 
         /* Section Styling */
-        section { padding: 80px 20px; border-bottom: 1px solid #1e293b; }
+        section { padding: 80px 20px; border-bottom: 1px solid #374151; }
         
         .section-title {
             font-size: 2rem; margin-bottom: 3rem; display: flex; align-items: center;
+            color: #fff; text-shadow: 0 0 10px rgba(56, 189, 248, 0.5); /* 標題發光 */
         }
         .section-title::before {
             content: '#'; color: var(--accent-cyan); margin-right: 10px; font-family: 'JetBrains Mono';
@@ -173,37 +192,42 @@
         .earth-container {
             position: absolute; width: 450px; height: 450px;
             top: 50%; left: 50%; transform: translate(-50%, -50%);
-            z-index: 1; opacity: 0.7; pointer-events: none;
+            /* [救援修正 6] 提高不透明度，讓它更亮 */
+            z-index: 1; opacity: 1.0; pointer-events: none;
         }
         .earth {
             width: 100%; height: 100%; border-radius: 50%;
             background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Earth_map_1024x512.jpg/1024px-Earth_map_1024x512.jpg');
             background-size: 200% 100%;
-            box-shadow: inset 0 0 50px #000, 0 0 20px rgba(56, 189, 248, 0.3);
+            /* [救援修正] 減少內部黑色陰影，增加外部發光 */
+            box-shadow: inset 0 0 20px #000, 0 0 30px rgba(56, 189, 248, 0.6);
             animation: rotateEarth 40s linear infinite;
+            filter: brightness(1.3); /* 暴力加亮 */
         }
         @keyframes rotateEarth { 0% { background-position: 0 0; } 100% { background-position: -200% 0; } }
 
         /* Video Wrapper */
-        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 8px; overflow: hidden; background: #000; margin-bottom: 10px; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 8px; overflow: hidden; background: #000; margin-bottom: 10px; border: 1px solid #4b5563; }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
         /* Tags */
         .tag {
-            font-size: 0.75rem; padding: 2px 8px; border-radius: 4px;
-            background: rgba(255,255,255,0.1); color: var(--text-secondary);
-            font-family: 'JetBrains Mono'; margin-right: 5px;
+            font-size: 0.85rem; padding: 4px 10px; border-radius: 4px;
+            background: rgba(255,255,255,0.2); color: #fff; /* 標籤加亮 */
+            font-family: 'JetBrains Mono'; margin-right: 5px; border: 1px solid rgba(255,255,255,0.3);
         }
 
         /* Reflection Box */
         .reflection-box {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            border: 1px solid var(--accent-cyan);
+            background: linear-gradient(135deg, #1f2937, #111827);
+            border: 2px solid var(--accent-cyan); /* 邊框加粗 */
             border-radius: 16px;
             padding: 3rem;
             position: relative;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2); /* 發光效果 */
         }
-        .reflection-box i { color: var(--accent-cyan); opacity: 0.3; font-size: 3rem; position: absolute; top: 20px; left: 20px; }
+        .reflection-box i { color: var(--accent-cyan); opacity: 0.5; font-size: 3rem; position: absolute; top: 20px; left: 20px; }
+        .reflection-box p { color: #fff; font-weight: 500; } /* 結語文字加亮加粗 */
     </style>
 </head>
 
@@ -236,26 +260,26 @@
 
     <div class="sidebar d-none d-lg-block">
         <div class="mb-5 px-2">
-            <h4 class="brand-font text-white mb-0">地球物理通論</h4>
-            <small class="text-secondary tech-font">Final Project 2025</small>
+            <h4 class="brand-font text-white mb-0" style="text-shadow: 0 0 10px rgba(255,255,255,0.3);">地球物理通論</h4>
+            <small class="text-secondary tech-font" style="color: #9ca3af !important;">Final Project 2025</small>
         </div>
         <nav class="nav flex-column gap-1">
             <a class="nav-link active" href="#home"><i class="fas fa-home"></i> 首頁</a>
             
-            <div class="text-secondary small mt-4 mb-2 px-3 tech-font opacity-50">OVERVIEW</div>
+            <div class="text-white small mt-4 mb-2 px-3 tech-font opacity-75">OVERVIEW</div>
             <a class="nav-link" href="#roadmap"><i class="fas fa-route"></i> 學習旅程地圖</a>
             <a class="nav-link" href="#core-knowledge"><i class="fas fa-brain"></i> 核心知識解析</a>
             
-            <div class="text-secondary small mt-4 mb-2 px-3 tech-font opacity-50">TOOLKIT</div>
+            <div class="text-white small mt-4 mb-2 px-3 tech-font opacity-75">TOOLKIT</div>
             <a class="nav-link" href="#tools"><i class="fas fa-toolbox"></i> 數位工具與 AI</a>
             <a class="nav-link" href="#pygmt"><i class="fas fa-map"></i> PyGMT 視覺化應用</a>
             
-            <div class="text-secondary small mt-4 mb-2 px-3 tech-font opacity-50">INSIGHTS</div>
-            <a class="nav-link" href="#masters"><i class="fas fa-microphone-alt"></i> 大師演講</a>
+            <div class="text-white small mt-4 mb-2 px-3 tech-font opacity-75">INSIGHTS</div>
+            <a class="nav-link" href="#masters"><i class="fas fa-microphone-alt"></i> 大師演講摘要</a>
             <a class="nav-link" href="#reflection"><i class="fas fa-feather-alt"></i> 學期總結</a>
             
             <div class="mt-5 px-3">
-                <a href="https://github.com/z72123/U11104022-Final-Project-Report" target="_blank" class="btn btn-outline-light w-100 btn-sm tech-font">
+                <a href="https://github.com/z72123/U11104022-Final-Project-Report" target="_blank" class="btn btn-outline-light w-100 btn-sm tech-font fw-bold">
                     <i class="fab fa-github"></i> Source Code
                 </a>
             </div>
@@ -267,12 +291,12 @@
         <section id="home" class="hero">
             <div class="earth-container"><div class="earth"></div></div>
             <div class="container text-center" style="z-index: 2;">
-                <h1 class="display-3 fw-bold mb-3 text-white">探索地球的脈動</h1>
-                <p class="lead text-secondary mb-4 tech-font">&lt; Geophysics x History x Geography &gt;</p>
+                <h1 class="display-3 fw-bold mb-3 text-white" style="text-shadow: 0 0 20px rgba(0,0,0,0.8);">探索地球的脈動</h1>
+                <p class="lead text-light mb-4 tech-font fw-bold" style="text-shadow: 0 0 10px rgba(0,0,0,0.8);">&lt; Geophysics x History x Geography &gt;</p>
                 <div class="d-flex justify-content-center gap-3">
                     <a href="#roadmap" class="btn btn-tech btn-lg rounded-pill px-5 shadow-lg">Start Exploration</a>
                 </div>
-                <div class="mt-5 text-secondary small">
+                <div class="mt-5 text-light small fw-bold">
                     <p class="mb-1">114 學年度第 1 學期 | 指導教授：陳達毅</p>
                     <p>學生：史地四 U11104022 張以蓁</p>
                 </div>
@@ -315,8 +339,8 @@
                 <div class="row g-4">
                     <div class="col-lg-6">
                         <div class="tech-card p-4 knowledge-card">
-                            <div class="card-icon bg-primary bg-opacity-25 text-primary"><i class="fas fa-wave-square"></i></div>
-                            <h4 class="mb-3">地震波形處理</h4>
+                            <div class="card-icon text-primary"><i class="fas fa-wave-square"></i></div>
+                            <h4 class="mb-3 text-white">地震波形處理</h4>
                             <p class="text-secondary small mb-3">
                                 <strong>ObsPy</strong> 是地震學研究的瑞士刀。原始地震紀錄往往充滿環境雜訊，我們透過以下步驟提取有效訊號：
                             </p>
@@ -326,15 +350,15 @@
                                 <li>> 濾波 (Filtering)：使用 Bandpass Filter (1-10Hz) 保留 P/S 波能量，濾除高頻噪訊。</li>
                             </ul>
                             <div class="mt-auto">
-                                <a href="https://github.com/z72123/geophysics-class-2025" target="_blank" class="btn btn-sm btn-outline-primary w-100"><i class="fab fa-github"></i> HW3 程式碼 Repo</a>
+                                <a href="https://github.com/z72123/geophysics-class-2025" target="_blank" class="btn btn-sm btn-outline-primary w-100 fw-bold"><i class="fab fa-github"></i> HW3 程式碼 Repo</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-6">
                         <div class="tech-card p-4 knowledge-card green">
-                            <div class="card-icon bg-success bg-opacity-25 text-success"><i class="fas fa-hammer"></i></div>
-                            <h4 class="mb-3">折射震測與數據解釋</h4>
+                            <div class="card-icon text-success"><i class="fas fa-hammer"></i></div>
+                            <h4 class="mb-3 text-white">折射震測與數據解釋</h4>
                             <p class="text-secondary small mb-3">
                                 利用 <strong>司乃耳定律</strong> 探測地下分層。當震波傳遞至高速層時會發生臨界折射：
                             </p>
@@ -344,10 +368,10 @@
                                 <li>> 截距時間：利用 Xcr 推算第一層厚度 (H≈4.21m)。</li>
                             </ul>
                             <div class="mt-auto d-flex gap-2">
-                                <button type="button" class="btn btn-sm btn-outline-light w-50" data-bs-toggle="modal" data-bs-target="#modalHW4">
+                                <button type="button" class="btn btn-sm btn-outline-light w-50 fw-bold" data-bs-toggle="modal" data-bs-target="#modalHW4">
                                     <i class="fas fa-image"></i> HW4 推導過程
                                 </button>
-                                <a href="assets/第九組震測實驗報告.pdf" target="_blank" class="btn btn-sm btn-outline-success w-50">
+                                <a href="assets/第九組震測實驗報告.pdf" target="_blank" class="btn btn-sm btn-outline-success w-50 fw-bold">
                                     <i class="fas fa-file-pdf"></i> HW5 實驗報告
                                 </a>
                             </div>
@@ -356,8 +380,8 @@
 
                     <div class="col-lg-6">
                         <div class="tech-card p-4 knowledge-card orange">
-                            <div class="card-icon bg-warning bg-opacity-25 text-warning"><i class="fas fa-magnet"></i></div>
-                            <h4 class="mb-3">位場：重力與古地磁</h4>
+                            <div class="card-icon text-warning"><i class="fas fa-magnet"></i></div>
+                            <h4 class="mb-3 text-white">位場：重力與古地磁</h4>
                             <p class="text-secondary small mb-3">
                                 透過測量地球的重力與磁場，揭示看不見的構造與歷史：
                             </p>
@@ -366,16 +390,16 @@
                                 <li>> 古地磁極漂移 (APWP)：岩石記錄了形成時的磁場，證明了板塊曾經移動。</li>
                             </ul>
                             <div class="mt-auto d-flex gap-2">
-                                <a href="https://z72123.github.io/HW7_U11104022/" target="_blank" class="btn btn-sm btn-outline-warning w-50">HW7 測勘報告</a>
-                                <a href="https://huggingface.co/spaces/Z72123/freeair-gtavity" target="_blank" class="btn btn-sm btn-outline-light w-50">HW8 互動 App</a>
+                                <a href="https://z72123.github.io/HW7_U11104022/" target="_blank" class="btn btn-sm btn-outline-warning w-50 fw-bold">HW7 測勘報告</a>
+                                <a href="https://huggingface.co/spaces/Z72123/freeair-gtavity" target="_blank" class="btn btn-sm btn-outline-light w-50 fw-bold">HW8 互動 App</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-6">
                         <div class="tech-card p-4 knowledge-card purple">
-                            <div class="card-icon bg-primary bg-opacity-25 text-white" style="background-color: var(--accent-purple) !important;"><i class="fas fa-fire"></i></div>
-                            <h4 class="mb-3">大地電磁法 (MT) 與地熱</h4>
+                            <div class="card-icon text-white" style="color: var(--accent-purple) !important;"><i class="fas fa-fire"></i></div>
+                            <h4 class="mb-3 text-white">大地電磁法 (MT) 與地熱</h4>
                             <p class="text-secondary small mb-3">
                                 <strong>Magnetotellurics (MT)</strong> 利用天然電磁場探測地下電阻率結構，是深部地熱探勘的核心技術：
                             </p>
@@ -384,8 +408,8 @@
                                 <li>> 儲集層定位：利用 MT 辨識「黏土蓋層」與下方的「高溫儲集層」。</li>
                             </ul>
                             <div class="mt-auto">
-                                <a href="assets/課堂講義.pdf" target="_blank" class="btn btn-sm btn-outline-light w-100" style="border-color: var(--accent-purple); color: var(--accent-purple);">
-                                    <i class="fas fa-book"></i> 更多內容
+                                <a href="assets/地熱探勘上課資料.pdf" target="_blank" class="btn btn-sm btn-outline-light w-100 fw-bold" style="border-color: var(--accent-purple); color: var(--accent-purple);">
+                                    <i class="fas fa-book"></i> 更多內容 (課堂講義)
                                 </a>
                             </div>
                         </div>
@@ -401,37 +425,37 @@
                     <div class="col-md-3">
                         <div class="tech-card p-4 text-center">
                             <i class="fas fa-shapes fa-3x mb-3 text-warning"></i>
-                            <h5>HuggingFace</h5>
+                            <h5 class="text-white">HuggingFace</h5>
                             <span class="tag mb-3 d-inline-block">HW1</span>
                             <p class="small text-secondary">模型託管與 Space 部署。</p>
-                            <a href="https://huggingface.co/spaces/Z72123/Intro-to-Geophysics" target="_blank" class="btn btn-sm btn-outline-secondary w-100">View Project</a>
+                            <a href="https://huggingface.co/spaces/Z72123/Intro-to-Geophysics" target="_blank" class="btn btn-sm btn-outline-secondary w-100 fw-bold">View Project</a>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="tech-card p-4 text-center">
                             <i class="fab fa-blogger fa-3x mb-3 text-danger"></i>
-                            <h5>Google Blogger</h5>
+                            <h5 class="text-white">Google Blogger</h5>
                             <span class="tag mb-3 d-inline-block">HW2</span>
                             <p class="small text-secondary">知識管理與學習歷程。</p>
-                            <a href="https://geophysics-overview.blogspot.com/2025/09/114-1_16.html" target="_blank" class="btn btn-sm btn-outline-secondary w-100">View Blog</a>
+                            <a href="https://geophysics-overview.blogspot.com/2025/09/114-1_16.html" target="_blank" class="btn btn-sm btn-outline-secondary w-100 fw-bold">View Blog</a>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="tech-card p-4 text-center">
                             <i class="fab fa-github fa-3x mb-3 text-white"></i>
-                            <h5>Codespaces</h5>
+                            <h5 class="text-white">Codespaces</h5>
                             <span class="tag mb-3 d-inline-block">HW3</span>
                             <p class="small text-secondary">ObsPy 地震波處理環境。</p>
-                            <a href="https://github.com/z72123/geophysics-class-2025" target="_blank" class="btn btn-sm btn-outline-secondary w-100">View Code</a>
+                            <a href="https://github.com/z72123/geophysics-class-2025" target="_blank" class="btn btn-sm btn-outline-secondary w-100 fw-bold">View Code</a>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="tech-card p-4 text-center">
                             <i class="fas fa-robot fa-3x mb-3 text-info"></i>
-                            <h5>AI Agent (Dify)</h5>
+                            <h5 class="text-white">AI Agent (Dify)</h5>
                             <span class="tag mb-3 d-inline-block">HW9</span>
                             <p class="small text-secondary">RAG 知識庫助手。</p>
-                            <a href="https://udify.app/workflow/lgcgpFF9BWLuE9fL" target="_blank" class="btn btn-sm btn-outline-info w-100">Try AI Bot</a>
+                            <a href="https://udify.app/workflow/lgcgpFF9BWLuE9fL" target="_blank" class="btn btn-sm btn-outline-info w-100 fw-bold">Try AI Bot</a>
                         </div>
                     </div>
                 </div>
@@ -440,7 +464,7 @@
 
         <section id="pygmt">
             <div class="container">
-                <h2 class="section-title">PyGMT 應用</h2>
+                <h2 class="section-title">PyGMT 視覺化專題</h2>
                 <p class="text-secondary mb-5">從入門教學到進階板塊繪圖，展現 Python 在地學繪圖的強大能力。</p>
 
                 <div class="row g-5">
@@ -454,7 +478,7 @@
                                 為了讓更多人能上手 PyGMT，我製作了一份基礎教學網站。
                                 詳細介紹了環境安裝、基礎繪圖指令與投影法設定，是進入地學繪圖的第一步。
                             </p>
-                            <a href="https://z72123.github.io/HW11_U11104022-learing-PyGMT/" target="_blank" class="btn btn-outline-success w-100 mt-3">前往教學網站</a>
+                            <a href="https://z72123.github.io/HW11_U11104022-learing-PyGMT/" target="_blank" class="btn btn-outline-success w-100 mt-3 fw-bold">前往教學網站</a>
                         </div>
                     </div>
 
@@ -475,7 +499,7 @@
                                         在 Google Colab 上實作進階繪圖。整合高解析度地形、活火山與歷史大地震數據，繪製指定區域的綜合地質圖。
                                         分析該區域的板塊邊界類型（聚合/張裂）及其形成的海溝或中洋脊地形。
                                     </p>
-                                    <a href="https://github.com/z72123/HW10_U11104022/blob/main/pygmt_plot_plate_boundary.ipynb" target="_blank" class="btn btn-tech w-100 mt-auto">查看 Colab 程式碼</a>
+                                    <a href="https://github.com/z72123/HW10_U11104022/blob/main/pygmt_plot_plate_boundary.ipynb" target="_blank" class="btn btn-tech w-100 mt-auto fw-bold">查看 Colab 程式碼</a>
                                 </div>
                             </div>
                         </div>
@@ -500,7 +524,7 @@
                                     <strong>核心摘要：</strong><br>
                                     介紹利用地震波速度差異反推地下介質分佈的技術，原理類似醫學 CT 掃描。應用於板塊構造研究與石油探勘。
                                 </p>
-                                </ul>
+                                 </ul>
                                 <a href="assets/作業6演講心得報告.pdf" target="_blank" class="btn btn-sm btn-outline-light w-100 mt-2">個人觀後心得PDF</a>
                             </div>
                         </div>
@@ -551,9 +575,9 @@
                     <i class="fas fa-quote-left"></i>
                     <p class="fs-5 lh-lg text-light mb-0" style="position: relative; z-index: 1;">
                         這門課對我來說，是從「閱讀文獻」到「解讀數據」的轉變。<br><br>
-                        作為史地系學生，我過去習慣從歷史文本或地圖上理解世界。而這學期，我學會了用 Python 處理波形、用 PyGMT 繪製地圖、用 AI 輔助分析。
+                        作為史地系學生，我過去習慣從歷史文本或地圖上理解世界。但這學期，我學會了用 Python 處理波形、用 PyGMT 繪製地圖、用 AI 輔助分析。
                         我嘗試將人文的時空觀點，與地球物理的探勘技術結合。<br><br>
-                        這個網頁不只是作業的堆疊，而是一份關於<strong>如何用現代科技重新認識地球</strong>的紀錄。」
+                        這個網頁不只是作業的堆疊，而是一份關於<strong>如何用現代科技重新認識地球</strong>的紀錄。
                     </p>
                     <div class="mt-4 text-end text-accent-cyan brand-font">
                         —— 史地四 U11104022 張以蓁
@@ -562,7 +586,7 @@
             </div>
         </section>
 
-        <footer class="text-center text-secondary small py-5" style="border-top: 1px solid #334155;">
+        <footer class="text-center text-secondary small py-5" style="border-top: 1px solid #374151;">
             <div class="container">
                 <p class="mb-1">114 學年度第一學期 地球物理通論期末報告</p>
                 <p class="mb-0 tech-font">Designed by U11104022 | Built with Bootstrap 5 & GitHub Pages</p>
