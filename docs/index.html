@@ -23,9 +23,8 @@
             --accent-green: #4ade80; /* 更亮的綠 */
             
             --text-primary: #ffffff; /* 純白 */
-            
-            /* [修正] 次要文字改為純白，確保在低亮度螢幕上的絕對可讀性 */
-            --text-secondary: #ffffff; 
+            /* [救援修正 3] 這是救命關鍵：次要文字從暗灰改成亮銀色 */
+            --text-secondary: #d1d5db; 
         }
 
         body {
@@ -67,7 +66,7 @@
         }
 
         .nav-link {
-            color: #ffffff; /* [修正] 導覽列文字改為純白 */
+            color: #d1d5db; /* 導覽列文字加亮 */
             padding: 0.8rem 1rem;
             border-radius: 6px;
             transition: all 0.2s;
@@ -277,7 +276,7 @@
             
             <div class="text-white small mt-4 mb-2 px-3 tech-font opacity-75">INSIGHTS</div>
             <a class="nav-link" href="#masters"><i class="fas fa-microphone-alt"></i> 大師演講摘要</a>
-            <a class="nav-link" href="#reflection"><i class="fas fa-feather-alt"></i> 策展人結語</a>
+            <a class="nav-link" href="#reflection"><i class="fas fa-feather-alt"></i> 學期總結</a>
             
             <div class="mt-5 px-3">
                 <a href="https://github.com/z72123/U11104022-Final-Project-Report" target="_blank" class="btn btn-outline-light w-100 btn-sm tech-font fw-bold">
@@ -530,4 +529,92 @@
                             </div>
                         </div>
                     </div>
-                    <div class
+                    <div class="col-md-4">
+                        <div class="tech-card">
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/1BnPqAMARlE" allowfullscreen></iframe>
+                            </div>
+                            <div class="p-4">
+                                <h5 class="text-warning">黃有志 博士：火山觀測</h5>
+                                <p class="small text-secondary mt-3">
+                                    <strong>核心摘要：</strong><br>
+                                    比較日本阿蘇火山與台灣大屯山。展示無人機 (UAV) 在火山口氣體採樣與熱影像拍攝的應用。
+                                </p>
+                                </ul>
+                                <a href="assets/作業12演講心得報告.pdf" target="_blank" class="btn btn-sm btn-outline-light w-100 mt-2">個人觀後心得PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="tech-card">
+                            <div class="video-wrapper mb-2">
+                                <iframe src="https://www.youtube.com/embed/dk9kC04-y2o" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/n5KBX0H5P50" allowfullscreen></iframe>
+                            </div>
+                            <div class="p-4">
+                                <h5 class="text-white" style="color: var(--accent-purple) !important;">廖勿渝 博士：AI 地震學</h5>
+                                <p class="small text-secondary mt-3">
+                                    <strong>核心摘要：</strong><br>
+                                    探討 Deep Learning 在地震監測的應用。AI 模型能自動「斷句」，精準挑選 P/S 波，大幅提升微震偵測能力。
+                                </p>
+                                </ul>
+                                <a href="assets/作業13演講心得報告.pdf" target="_blank" class="btn btn-sm btn-outline-light w-100 mt-2">個人觀後心得PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reflection">
+            <div class="container">
+                <h2 class="section-title">學期總結</h2>
+                <div class="reflection-box">
+                    <i class="fas fa-quote-left"></i>
+                    <p class="fs-5 lh-lg text-light mb-0" style="position: relative; z-index: 1;">
+                        這門課對我來說，是從「閱讀文獻」到「解讀數據」的轉變。<br><br>
+                        作為史地系學生，我過去習慣從歷史文本或地圖上理解世界。但這學期，我學會了用 Python 處理波形、用 PyGMT 繪製地圖、用 AI 輔助分析。
+                        我嘗試將人文的時空觀點，與地球物理的探勘技術結合。<br><br>
+                        這個網頁不只是作業的堆疊，而是一份關於<strong>如何用現代科技重新認識地球</strong>的紀錄。
+                    </p>
+                    <div class="mt-4 text-end text-accent-cyan brand-font">
+                        —— 史地四 U11104022 張以蓁
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-secondary small py-5" style="border-top: 1px solid #374151;">
+            <div class="container">
+                <p class="mb-1">114 學年度第一學期 地球物理通論期末報告</p>
+                <p class="mb-0 tech-font">Designed by U11104022 | Built with Bootstrap 5 & GitHub Pages</p>
+            </div>
+        </footer>
+    </div>
+
+    <div class="modal fade" id="modalHW4" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content bg-dark border-secondary">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title text-white">HW4: 折射震測公式推導</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <img src="assets/作業4-1.jpg" class="img-fluid rounded border border-secondary" alt="推導過程 1">
+                        </div>
+                        <div class="col-md-6">
+                            <img src="assets/作業4-2.jpg" class="img-fluid rounded border border-secondary" alt="推導過程 2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
