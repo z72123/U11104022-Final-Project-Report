@@ -1,57 +1,100 @@
-# 114-1 地球物理通論 期末專題報告 (Final Project)
+# 114-1 地球物理通論 期末專題報告 (Geophysics Final Project)
 
-**學生：** 史地四 U11104022 張以蓁  
-**指導教授：** 陳達毅 教授
+**探索地球的脈動：跨越地表與代碼的邊界**
 
----
-
-## 🔗 成果展示連結 (Deployment)
-* **互動式成果網頁 (GitHub Pages):** [https://z72123.github.io/U11104022-Final-Project-Report/](https://z72123.github.io/U11104022-Final-Project-Report/)
-* **AI 互動助手 (Dify):** [https://udify.app/workflow/lgcgpFF9BWLuE9fL](https://udify.app/workflow/lgcgpFF9BWLuE9fL)
-* **重力異常分析 App (Hugging Face):** [https://huggingface.co/spaces/Z72123/freeair-gtavity](https://huggingface.co/spaces/Z72123/freeair-gtavity)
+| **課程資訊** | **作者資訊** |
+| :--- | :--- |
+| **課程名稱**：地球物理通論 (114學年度第1學期) | **學生**：張以蓁 (U11104022) |
+| **指導教授**：陳達毅 教授 | **系級**：臺北市立大學 史地學系四年級 |
 
 ---
 
-## 📚 專案架構與內容整合 (Content Integration)
+## 🔗 專案成果展示 (Deployment)
 
-本專案旨在透過互動式網頁，完整呈現本學期在地球物理領域的學習歷程。作為史地系學生，我嘗試將地理空間的思維與地球物理的數據分析結合，內容涵蓋四大面向：
-
-### 1. 🛠️ 數位工具基礎 (Digital Infrastructure)
-* **目的：** 建立雲端開發與數據獲取能力。
-* **成果：** * 熟練使用 **GitHub Codespaces** 進行 Python 開發。
-  * 利用 **ObsPy** 串接 IRIS 資料庫，獲取並處理地震波形數據 (HW3)。
-
-### 2. 📝 理論與實地測勘 (Theory & Fieldwork)
-* **目的：** 驗證地球物理理論。
-* **成果：**
-  * **公式推導：** 詳解折射震測中的 Crossover Distance 與走時公式 (HW4)。
-  * **校園實驗：** 實地操作 24 通道震測儀，成功推算出校園地下第一層波速 (400 m/s) 與厚度 (4.21 m) (HW5)。
-
-### 3. 🗺️ 資料視覺化 (Data Visualization)
-* **目的：** 將抽象數據轉化為直觀的地質資訊。
-* **成果：**
-  * 使用 **PyGMT** 繪製包含地形、火山與地震分佈的板塊邊界圖 (HW10)。
-  * 建立 PyGMT 教學網頁，分享繪圖程式碼與經驗 (HW11)。
-
-### 4. 🤖 AI 與深度學習應用 (AI Integration)
-* **目的：** 探索新科技在地球科學的應用。
-* **成果：**
-  * **RAG 應用：** 建立 Dify 知識庫助手，輔助地球物理概念查詢 (HW9)。
-  * **互動展示：** 部署 Gradio App，動態展示重力異常修正原理 (HW8)。
+* **🌐 互動式成果網頁 (GitHub Pages)**: [點擊進入線上展覽](https://z72123.github.io/U11104022-Final-Project-Report/)
+* **🤖 AI 知識庫助手 (Dify)**: [試用 AI Bot](https://udify.app/workflow/lgcgpFF9BWLuE9fL)
+* **🌍 重力異常互動模擬 (HuggingFace)**: [操作 Gradio App](https://huggingface.co/spaces/Z72123/freeair-gtavity)
 
 ---
 
-## 📂 檔案目錄說明 (Structure)
+## 📖 專案簡介 (Introduction)
+
+本專案為「地球物理通論」課程的期末成果展。作為一名史地系學生，我嘗試將**人文的時空觀點**與**地球物理的探勘技術**結合。
+
+這不僅是一份作業合輯，更是一段從「閱讀文獻」轉向「解讀數據」的學習旅程。網站採用**深色科技風格 (Dark Mode Tech Theme)** 設計，象徵潛入深邃的地底世界，利用 Python、AI 與視覺化工具，重新認識我們腳下的地球。
+
+---
+
+## 🗺️ 學習旅程地圖 (Learning Roadmap)
+
+本學期的探索路徑分為四個階段，循序漸進地構建跨領域能力：
+
+* **Stage 1: 建構數位基礎**
+    * 熟悉 GitHub Ecosystem、Codespaces 雲端環境與 ObsPy 套件架設。
+* **Stage 2: 驗證物理理論**
+    * 從司乃耳定律推導折射公式，並進行校園實地敲擊震測，驗證地下速度構造。
+* **Stage 3: 探索地球場**
+    * 深入重力異常修正、古地磁極漂移 (APWP) 與大地電磁法 (MT) 的地質意義。
+* **Stage 4: 視覺化與 AI 賦能**
+    * 利用 PyGMT 繪製高解析度地質圖，並整合 RAG 技術建立個人 AI 助手。
+
+---
+
+## 📚 核心內容架構 (Content Highlights)
+
+網頁內容依據知識邏輯劃分為以下區塊：
+
+### 1. ⚛️ 地球物理核心知識 (Core Knowledge)
+以「研究員」視角解析四大核心主題，結合課堂理論與實作報告：
+* **震測波形處理 (Seismic Processing)**：利用 ObsPy 進行濾波與去均值 (HW3)。
+* **折射震測與解釋 (Refraction Seismology)**：推導 Crossover Distance 並分析野外數據 (HW4, HW5)。
+* **位場：重力與古地磁 (Potential Fields)**：探討重力異常修正與板塊漂移證據 (HW7, HW8)。
+* **大地電磁與地熱 (MT & Geothermal)**：介紹 MT 在探測低電阻率地熱儲集層的應用。
+
+### 2. 🛠️ 數位工具與 AI (Digital Toolkit)
+展示建立現代化研究工作流的工具鏈：
+* **HuggingFace & Gradio**：部署互動式 Web App。
+* **Google Blogger**：建立學習歷程檔案 (Portfolio)。
+* **GitHub Codespaces**：雲端 Python 開發環境。
+* **Dify AI Agent (HW9)**：建立專屬的地球物理 RAG 知識庫問答機器人。
+
+### 3. 🗺️ PyGMT 視覺化專題 (Visualization)
+* **入門教學 (HW11)**：製作 PyGMT 基礎教學網站，分享學習筆記。
+* **進階應用 (HW10)**：撰寫 Colab 程式碼，繪製疊合地形、火山、地震與板塊邊界的綜合地質圖。
+
+### 4. 🎤 大師演講摘要 (Masters' Insights)
+汲取領域專家的前沿觀點：
+* **甘禮有博士**：地震層析成像 (Seismic Tomography)。
+* **黃有志博士**：火山觀測與無人機應用。
+* **廖勿渝博士**：深度學習 (Deep Learning) 在地震監測的應用。
+
+---
+
+## 💻 網站技術 (Tech Stack)
+
+本靜態網頁使用以下技術構建，強調互動性與響應式設計：
+
+* **Frontend**: HTML5, CSS3, JavaScript
+* **Framework**: [Bootstrap 5](https://getbootstrap.com/) (Dark Mode enabled)
+* **Icons**: [FontAwesome 6](https://fontawesome.com/)
+* **Fonts**: 'Noto Sans TC' (正文), 'JetBrains Mono' (程式碼風格)
+* **Hosting**: GitHub Pages
+
+---
+
+## 📂 檔案結構 (File Structure)
 
 ```text
 .
 ├── index.html          # 網站主程式 (Entry Point)
-├── README.md           # 專案說明與部署連結 (本文件)
-└── assets/             # 靜態資源 (報告與圖片)
+├── README.md           # 專案說明文件
+└── assets/             # 資源資料夾
     ├── 作業3說明.pdf
     ├── 作業4-1.jpg
     ├── 作業4-2.jpg
     ├── 作業6演講心得報告.pdf
     ├── 作業12演講心得報告.pdf
     ├── 作業13演講心得報告.pdf
-    └── 第九組震測實驗報告.pdf
+    ├── 第九組震測實驗報告.pdf
+    ├── 地熱探勘上課資料.pdf
+    └── pygmt_preview.jpg  # PyGMT 預覽圖
